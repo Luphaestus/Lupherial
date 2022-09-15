@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/4 - Village.ogg-2bc85fbf8e4c683bc50b5c46c99a14e5.oggstr"
+
+[deps]
+
+source_file="res://top_down/assets/Musics/4 - Village.ogg"
+dest_files=[ "res://.import/4 - Village.ogg-2bc85fbf8e4c683bc50b5c46c99a14e5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
