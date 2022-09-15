@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/13 - Mystical.ogg-a26ff3e16bc542be82585406de9d7fb5.oggstr"
+
+[deps]
+
+source_file="res://top_down/assets/Musics/13 - Mystical.ogg"
+dest_files=[ "res://.import/13 - Mystical.ogg-a26ff3e16bc542be82585406de9d7fb5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
