@@ -1,0 +1,13 @@
+{
+"constants_path" : "res://src/entities/types/generation/resource/resource-constants.json",
+"general_propoties": {
+	"posx": 0,
+	"posy": 0,
+	},
+"resource": {
+	"sourceImg":"",
+	"atlasCoords":"",
+	"id": "",
+	"type":""
+	}
+}

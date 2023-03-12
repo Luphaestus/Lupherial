@@ -1,0 +1,7 @@
+extends character
+@export var MOVE_SPEED : float = 100
+
+func _ready():
+	super.ready()
+	movement = func movement() -> Vector2: return Input.get_vector("left", "right", "up", "down")
+

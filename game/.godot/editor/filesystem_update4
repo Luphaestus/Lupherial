@@ -1,0 +1,7 @@
+res://src/entities/types/generation/resource/resource.tscn
+res://src/entities/types/character/enemy/zombie/enemie.gd
+res://src/entities/types/lighting/day_night.gd
+res://src/entities/types/generation/terrain/assets/terrain.tres
+res://src/entities/types/generation/terrain/terrain.tscn
+res://src/entities/types/character/enemy/zombie/enemie.tscn
+res://src/entities/types/character/enemy/shared-res/health/health.tscn

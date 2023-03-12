@@ -1,0 +1,13 @@
+extends Entity
+
+func _ready():
+	debugScript = "res://top-down/entities/types/player/player.json"
+	super.ready()
+	
+	for child in get_children():
+		if child.has_method("parent_ready"):
+			child.parent_ready()
+
+func _process(_delta):
+	super.process()
+

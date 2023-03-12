@@ -1,0 +1,14 @@
+{
+ 	"general_propoties": {
+		"scriptLocation": "res://src/entities/types/character/player/player.tscn",
+		"originalJson": "res://src/entities/types/character/player/player.json",
+		"loadChunks": 1
+	},
+	"saving": {
+		"do_save": true,
+		"save_with_chunk": false
+	},
+	"character": {
+		"max_health": 10
+	}
+}

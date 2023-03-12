@@ -1,0 +1,10 @@
+{
+ 	"general_propoties": {
+		"scriptLocation": "res://src/entities/types/overlay/pickup-notification/pickup-notification.tscn",
+		"loadChunks": -1
+	},
+	"saving": {
+		"do_save": true,
+		"save_with_chunk": false
+	},
+}

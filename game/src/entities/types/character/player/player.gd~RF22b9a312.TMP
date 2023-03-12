@@ -1,0 +1,9 @@
+extends character
+@export var MOVE_SPEED : float = 100
+
+func _ready():
+	debugScript = "res://top-down/entities/types/character/player/player.json"
+	super.ready()
+	movement = func movement() -> Vector2: 
+		return Input.get_vector("left", "right", "up", "down")
+

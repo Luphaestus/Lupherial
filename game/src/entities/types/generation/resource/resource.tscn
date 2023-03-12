@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://c06r6iv1uqvbk"]
+
+[ext_resource type="Script" path="res://src/entities/types/generation/resource/resource.gd" id="1_03gh5"]
+[ext_resource type="TileSet" uid="uid://d4eu7rle65fk3" path="res://src/entities/types/generation/terrain/assets/terrain.tres" id="2_5py4d"]
+
+[sub_resource type="Animation" id="Animation_357l2"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_61dum"]
+resource_name = "shake"
+length = 0.2
+step = 0.05
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, -1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qy0p6"]
+_data = {
+"RESET": SubResource("Animation_357l2"),
+"shake": SubResource("Animation_61dum")
+}
+
+[node name="resource" type="Node2D" node_paths=PackedStringArray("tilemap", "animPlayer")]
+script = ExtResource("1_03gh5")
+tilemap = NodePath("Node2D/TileMap")
+animPlayer = NodePath("AnimationPlayer")
+itemEntityPath = "res://src/entities/types/item/item.json"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qy0p6")
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Node2D"]
+tile_set = ExtResource("2_5py4d")
+format = 2

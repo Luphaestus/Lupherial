@@ -1,0 +1,13 @@
+{
+	"general_propoties": {
+		"scriptLocation": "res://src/entities/types/character/enemy/zombie/enemie.tscn",
+		"loadChunks": -1
+	},
+	"saving": {
+		"do_save": false,
+		"save_with_chunk": false
+		},
+	"character": {
+		"max_health": 5
+	}
+}

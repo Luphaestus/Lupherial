@@ -1,0 +1,7 @@
+{
+ 	"constants_path" : "res://src/entities/types/generation/terrain/terrain-constants.json",
+ 	"general_propoties": {
+		"posx": 0,
+		"posy": 0,
+	},
+}

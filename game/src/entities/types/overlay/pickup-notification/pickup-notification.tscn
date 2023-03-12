@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c645icof5nodd"]
+
+[ext_resource type="Script" path="res://src/entities/types/overlay/pickup-notification/pickup-notification.gd" id="1_pw3sd"]
+
+[node name="pickup-notification" type="Node2D"]
+top_level = true
+z_index = 4096
+script = ExtResource("1_pw3sd")
+notification_scene = "res://src/entities/types/overlay/pickup-notification/notification.tscn"

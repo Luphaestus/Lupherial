@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwma577gdks6r"]
+
+[ext_resource type="Script" path="res://src/entities/types/character/shared_res/hit/hurtbox.gd" id="1_t41sp"]
+
+[node name="hurtbox" type="Area2D"]
+modulate = Color(0, 0.619608, 0, 1)
+script = ExtResource("1_t41sp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

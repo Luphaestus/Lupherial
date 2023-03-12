@@ -1,0 +1,12 @@
+extends chata
+@export var MOVE_SPEED : float = 100
+
+
+func _physics_process(_delta):
+	var input_direction = Input.get_vector("left", "right", "up", "down")
+	velocity = input_direction * MOVE_SPEED
+	move_and_slide()
+
+	get_parent().DATA["general_propoties"]["posx"] = position.x
+	get_parent().DATA["general_propoties"]["posy"] = position.y
+	
