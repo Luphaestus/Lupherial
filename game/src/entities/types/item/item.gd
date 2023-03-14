@@ -1,6 +1,7 @@
 extends Entity
 var item
 
+
 @export var sprite : Sprite2D 
 
 func _ready() -> void:
@@ -8,6 +9,8 @@ func _ready() -> void:
 	position.y = DATA["general_propoties"]["posy"]
 	super._ready()
 	item = ITEM_GLOBALS.items[DATA["item"]["item_type"]]
+
+	sprite.visible = true
 	sprite.frame_coords = item["icon_coords"]
 	
 

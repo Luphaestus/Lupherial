@@ -5,3 +5,9 @@ res://src/entities/types/generation/terrain/assets/terrain.tres
 res://src/entities/types/generation/terrain/terrain.tscn
 res://src/entities/types/character/enemy/zombie/enemie.tscn
 res://src/entities/types/character/enemy/shared-res/health/health.tscn
+res://src/entities/types/character/shared_res/tools/hitbox.tscn
+res://src/entities/types/character/shared_res/tools/tool_base.tscn
+res://src/entities/types/character/shared_res/char_anim_tree.tscn
+res://src/entities/types/item/item.tscn
+res://src/entities/types/item/item.gd
+res://src/globals/items.gd

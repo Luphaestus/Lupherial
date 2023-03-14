@@ -307,16 +307,17 @@ _data = {
 "right-walk": SubResource("Animation_mqddh")
 }
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_1omf4"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_abtra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkn1s"]
 size = Vector2(8, 13)
 
-[node name="player" type="Node2D" node_paths=PackedStringArray("health")]
+[node name="zombie" type="Node2D" node_paths=PackedStringArray("health", "tool")]
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_1hl8v")
 script = ExtResource("1_vatqu")
 health = NodePath("CharacterBody2D/health")
+tool = NodePath("CharacterBody2D/tool_base")
 metadata/_edit_vertical_guides_ = [-140.0]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -356,7 +357,7 @@ libraries = {
 
 [node name="AnimationTree2" parent="CharacterBody2D" instance=ExtResource("4_o86b8")]
 active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_1omf4")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_abtra")
 
 [node name="hurtbox" parent="CharacterBody2D" node_paths=PackedStringArray("root_node") instance=ExtResource("6_7ba1y")]
 collision_layer = 4

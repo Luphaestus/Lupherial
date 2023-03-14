@@ -2,14 +2,33 @@ extends Node2D
 
 var initPosition
 @export var root_node : Node2D
+@export var sprite : Sprite2D
 @export var target := "mouse" 
-@export var tool_type := "gold sword"
 
-var damage = {
-	"gold sword":1
+var tool_type := "gold sword"
+
+
+
+var tool := {
+	"bronze sword": {"imgCoords": Vector2i(0, 0), "damage":1},
+	
+	"silver sword":{"imgCoords": Vector2i(0, 1), "damage":1},
+	
+	"gold sword": {"imgCoords": Vector2i(0, 2), "damage":1},
+	
+	"diamond sword": {"imgCoords": Vector2i(0, 3), "damage":1},
+	
+	"ruby sword": {"imgCoords": Vector2i(0, 4), "damage":1},
 }
 
+func changeTool(newTool):
+	tool_type = newTool
+	sprite.frame_coords = tool[tool_type]["imgCoords"]
+
+	
+
 func _ready() -> void:
+
 	initPosition = position.x
 
 func _process(_delta: float) -> void:
@@ -19,4 +38,4 @@ func _process(_delta: float) -> void:
 	
 	
 func get_damage():
-	return damage[tool_type]
+	return tool[tool_type]["damage"]
