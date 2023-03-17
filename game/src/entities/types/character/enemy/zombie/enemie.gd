@@ -2,10 +2,11 @@ extends character
 
 @export var health : Node2D
 @export var tool : Node2D
+@export var pos : CharacterBody2D
 
 func _ready() -> void:
 	health.start(int(DATA["constants"]["character"]["max_health"]), int(DATA["character"]["health"]))
-	if randi_range(0, 1) == 0:
+	if randi_range(0, 10) == 0:
 		super._ready()
 	else: queue_free()
 	
@@ -20,7 +21,9 @@ func _ready() -> void:
 		
 	tool.changeTool(tool.tool.keys()[randi_range(0, len(tool.tool.keys())-1)])
 	
-
+	death = func death() -> void:
+		ITEM_GLOBALS.create_entity(pos.position, tool.tool_type)
+		
 
 func damage(area: Area2D) -> void:
 	apply_damage(area.get_damage())

@@ -5,20 +5,20 @@ var initPosition
 @export var sprite : Sprite2D
 @export var target := "mouse" 
 
-var tool_type := "gold sword"
+var tool_type := "gold_sword"
 
 
 
 var tool := {
-	"bronze sword": {"imgCoords": Vector2i(0, 0), "damage":1},
+	"bronze_sword": {"imgCoords": Vector2i(0, 0), "damage":1},
 	
-	"silver sword":{"imgCoords": Vector2i(0, 1), "damage":1},
+	"silver_sword":{"imgCoords": Vector2i(0, 1), "damage":1},
 	
-	"gold sword": {"imgCoords": Vector2i(0, 2), "damage":1},
+	"gold_sword": {"imgCoords": Vector2i(0, 2), "damage":1},
 	
-	"diamond sword": {"imgCoords": Vector2i(0, 3), "damage":1},
+	"diamond_sword": {"imgCoords": Vector2i(0, 3), "damage":1},
 	
-	"ruby sword": {"imgCoords": Vector2i(0, 4), "damage":1},
+	"ruby_sword": {"imgCoords": Vector2i(0, 4), "damage":1},
 }
 
 func changeTool(newTool):

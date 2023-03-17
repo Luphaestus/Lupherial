@@ -5,7 +5,6 @@ extends Entity
 
 var info
 var health
-@export var itemEntityPath : String
 
 func _ready() -> void:
 	position.x = DATA["general_propoties"]["posx"]
@@ -24,13 +23,6 @@ func apply_damage(damage):
 	animPlayer.play("shake")
 	health -= damage
 	if health <= 0:
-		if itemEntityPath:
-			var itemJson = get_tree().get_nodes_in_group("engine")[0].ReadEntityJsonFile(itemEntityPath) 
-			itemJson["general_propoties"]["posx"] = position.x+8
-			itemJson["general_propoties"]["posy"] = position.y+16
-			itemJson["item"]["item_type"] = info["item_type"]
-			var itemObject : Object = load(itemJson["constants"]["general_propoties"]["scriptLocation"]).instantiate()
-			itemObject.DATA = itemJson
-			get_parent().call_deferred("add_child", itemObject)
+		ITEM_GLOBALS.create_entity(Vector2(position.x+8, position.y+16), info["item_type"])
 		queue_free()
 

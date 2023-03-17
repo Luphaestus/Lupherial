@@ -1,4 +1,5 @@
 extends character
+@export var tool : Node2D
 
 func _ready():
 	add_to_group("player")
@@ -16,5 +17,8 @@ func _ready():
 
 
 
-
+func add_item(item_object:Object):
+	if item_object.info.has("is_tool"):
+		tool.changeTool(item_object.info["is_tool"])
+	return true
 

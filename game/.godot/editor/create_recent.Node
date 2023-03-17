@@ -1,5 +1,10 @@
+item
 Sprite2D
+ColorRect
+TextureRect
 Node2D
+CanvasModulate
+CanvasGroup
 TextureProgressBar
 CenterContainer
 Container
@@ -8,7 +13,6 @@ MarginContainer
 Control
 Label
 Panel
-ColorRect
 CanvasLayer
 NinePatchRect
 TileMap
@@ -16,7 +20,6 @@ Area2D
 CollisionShape2D
 AnimationPlayer
 Node
-CanvasModulate
 GPUParticles2D
 StaticBody2D
 NavigationAgent2D

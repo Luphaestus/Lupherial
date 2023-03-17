@@ -43,7 +43,6 @@ _data = {
 script = ExtResource("1_03gh5")
 tilemap = NodePath("Node2D/TileMap")
 animPlayer = NodePath("AnimationPlayer")
-itemEntityPath = "res://src/entities/types/item/item.json"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

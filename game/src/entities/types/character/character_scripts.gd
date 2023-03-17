@@ -44,10 +44,12 @@ func _process(delta):
 #empty function#
 var movement = func () -> Array: return [Vector2(0, 0), 0]
 var get_damage = func() -> float: return 0
-
+var death = func() -> void: pass 
 func apply_damage(damage):
 	DATA["character"]["health"] -= damage
-	if DATA["character"]["health"] <= 0: queue_free()
+	if DATA["character"]["health"] <= 0: 
+		death.call()
+		queue_free()
 	if animationPlayer and hurtAnim:
 		animationPlayer.stop()
 		animationPlayer.play(hurtAnim)

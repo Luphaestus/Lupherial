@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/entities/types/character/player/player.gd" id="1_snmf5"]
 [ext_resource type="Texture2D" uid="uid://dkdy3yjdwcfpt" path="res://src/entities/types/character/player/assets/Girl-Sheet.png" id="2_dc54y"]
 [ext_resource type="Shader" path="res://src/entities/types/character/shared_res/hit/hurt.gdshader" id="2_heiss"]
-[ext_resource type="PackedScene" uid="uid://d14pip1k1k1ud" path="res://src/entities/types/character/shared_res/tools/tool_base.tscn" id="7_q7epj"]
+[ext_resource type="PackedScene" uid="uid://dqto03y251o8v" path="res://src/entities/types/character/shared_res/tools/tool_base.tscn" id="7_q7epj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f1vss"]
 resource_local_to_scene = true
@@ -303,9 +303,10 @@ orbit_velocity_max = 0.0
 linear_accel_min = -73.87
 color = Color(0.290196, 0.384314, 1, 1)
 
-[node name="player" type="Node2D"]
+[node name="player" type="Node2D" node_paths=PackedStringArray("tool")]
 y_sort_enabled = true
 script = ExtResource("1_snmf5")
+tool = NodePath("CharacterBody2D/tool_base")
 metadata/_edit_vertical_guides_ = [-140.0]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]

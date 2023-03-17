@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://figtjdph1hja"]
+
+[ext_resource type="Script" path="res://src/entities/types/item/types/wood/wood_item.gd" id="1_tcs8h"]
+[ext_resource type="PackedScene" uid="uid://cxrxji3nuuc1" path="res://src/entities/types/item/shared_src/item.tscn" id="2_cuty4"]
+
+[node name="wood_item" type="Node2D"]
+script = ExtResource("1_tcs8h")
+
+[node name="item" parent="." instance=ExtResource("2_cuty4")]
+
+[editable path="item"]

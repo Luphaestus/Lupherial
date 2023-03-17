@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba02u0ne0c17v"]
+
+[ext_resource type="Script" path="res://src/entities/types/item/types/silver_sword/silver_sword_item.gd" id="1_j8bxb"]
+[ext_resource type="PackedScene" uid="uid://cxrxji3nuuc1" path="res://src/entities/types/item/shared_src/item.tscn" id="2_vi7ou"]
+[ext_resource type="Texture2D" uid="uid://b6jtj5j6fim33" path="res://src/entities/types/item/assets/tools.png" id="3_2b1d8"]
+
+[node name="wood_item" type="Node2D"]
+script = ExtResource("1_j8bxb")
+
+[node name="item" parent="." instance=ExtResource("2_vi7ou")]
+
+[node name="Sprite2D" parent="item" index="0"]
+texture = ExtResource("3_2b1d8")
+hframes = 6
+vframes = 5
+frame = 7
+
+[editable path="item"]
