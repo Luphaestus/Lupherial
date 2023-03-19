@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://jo0px5yffqy5"]
+
+[ext_resource type="PackedScene" uid="uid://y3u0da6tvoe0" path="res://src/entities/types/item/world/shared_src/world_item.tscn" id="2_r3bwt"]
+
+[sub_resource type="GDScript" id="GDScript_d68hn"]
+script/source = "extends Entity
+"
+
+[node name="coal_item" type="Node2D"]
+script = SubResource("GDScript_d68hn")
+
+[node name="item" parent="." instance=ExtResource("2_r3bwt")]
+
+[node name="Sprite2D" parent="item" index="0"]
+frame = 4
+
+[editable path="item"]

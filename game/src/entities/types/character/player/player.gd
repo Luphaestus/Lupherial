@@ -1,5 +1,6 @@
 extends character
-@export var tool : Node2D
+@export var tool : Tool
+@export var inventory : Inventory
 
 func _ready():
 	add_to_group("player")
@@ -18,7 +19,15 @@ func _ready():
 
 
 func add_item(item_object:Object):
-	if item_object.info.has("is_tool"):
-		tool.changeTool(item_object.info["is_tool"])
+	
+	if item_object.DATA["constants"]["item"].has("is_tool"):
+		tool.changeTool(item_object.DATA["constants"]["item"]["is_tool"])
+	if item_object.DATA["constants"]["item"].has("inventory_path"):
+		return inventory.add(item_object.DATA["constants"]["item"]["inventory_path"], 1)
 	return true
+
+func _process(delta: float) -> void:
+	super._process(delta)
+	if Input.is_action_just_pressed("toggle_inventory"):
+		inventory.visible = not inventory.visible
 

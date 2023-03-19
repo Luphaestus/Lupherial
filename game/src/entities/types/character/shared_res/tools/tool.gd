@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Tool
+
 var initPosition
 @export var root_node : Node2D
 @export var sprite : Sprite2D

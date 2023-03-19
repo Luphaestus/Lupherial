@@ -11,7 +11,7 @@ var currentValue : float
 var maxValue = 10
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if gradual.value >= currentValue:
 		gradual.value -= .05
 	elif gradual.value != currentValue:

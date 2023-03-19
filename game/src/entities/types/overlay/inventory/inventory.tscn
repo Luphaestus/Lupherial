@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkwmb3hq87vui"]
+
+[ext_resource type="Script" path="res://src/entities/types/overlay/inventory/inventory.gd" id="1_8egyw"]
+[ext_resource type="Script" path="res://src/entities/types/overlay/inventory/container_size.gd" id="2_irbux"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t34mj"]
+bg_color = Color(0.333333, 0.305882, 0.262745, 1)
+
+[node name="inventory" type="Node2D" node_paths=PackedStringArray("grid", "grid_size")]
+script = ExtResource("1_8egyw")
+slot_path = "res://src/entities/types/overlay/inventory/slot.tscn"
+grid = NodePath("PanelContainer/GridContainer")
+grid_size = NodePath("PanelContainer")
+slot_size = 60
+number_of_slots = 20
+columns = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+theme_override_styles/panel = SubResource("StyleBoxFlat_t34mj")
+script = ExtResource("2_irbux")
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 4

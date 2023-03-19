@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6i4olq4c6yec"]
+
+[ext_resource type="PackedScene" uid="uid://y3u0da6tvoe0" path="res://src/entities/types/item/world/shared_src/world_item.tscn" id="2_kihni"]
+[ext_resource type="Texture2D" uid="uid://b6jtj5j6fim33" path="res://src/entities/types/item/assets/tools.png" id="3_fsn4g"]
+
+[sub_resource type="GDScript" id="GDScript_drcwj"]
+script/source = "extends Entity
+"
+
+[node name="diamond_sword_item" type="Node2D"]
+script = SubResource("GDScript_drcwj")
+
+[node name="item" parent="." instance=ExtResource("2_kihni")]
+
+[node name="Sprite2D" parent="item" index="0"]
+texture = ExtResource("3_fsn4g")
+hframes = 6
+vframes = 5
+frame = 18
+
+[editable path="item"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://ck4748ag80xcn"]
+[gd_scene load_steps=35 format=3 uid="uid://bko7d0i563vv"]
 
 [ext_resource type="Script" path="res://src/entities/types/character/player/player.gd" id="1_snmf5"]
 [ext_resource type="Texture2D" uid="uid://dkdy3yjdwcfpt" path="res://src/entities/types/character/player/assets/Girl-Sheet.png" id="2_dc54y"]
 [ext_resource type="Shader" path="res://src/entities/types/character/shared_res/hit/hurt.gdshader" id="2_heiss"]
-[ext_resource type="PackedScene" uid="uid://dqto03y251o8v" path="res://src/entities/types/character/shared_res/tools/tool_base.tscn" id="7_q7epj"]
+[ext_resource type="PackedScene" uid="uid://dqto03y251o8v" path="res://src/entities/types/character/shared_res/tools/tool.tscn" id="3_ot15u"]
+[ext_resource type="PackedScene" uid="uid://bkwmb3hq87vui" path="res://src/entities/types/overlay/inventory/inventory.tscn" id="5_kqjos"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f1vss"]
 resource_local_to_scene = true
@@ -13,18 +14,6 @@ shader_parameter/strength = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fb0r"]
 size = Vector2(4, 5)
-
-[sub_resource type="Gradient" id="Gradient_fu6hq"]
-colors = PackedColorArray(0.753984, 0.753984, 0.753984, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xuwvl"]
-gradient = SubResource("Gradient_fu6hq")
-width = 312
-height = 312
-use_hdr = true
-fill = 1
-fill_from = Vector2(0.508547, 0.5)
-fill_to = Vector2(0.735043, 0.611111)
 
 [sub_resource type="Animation" id="Animation_450mm"]
 length = 0.001
@@ -287,50 +276,24 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_i107x"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_suhmd"]
-lifetime_randomness = 1.0
-emission_shape = 3
-emission_box_extents = Vector3(175, 100, 1)
-particle_flag_disable_z = true
-direction = Vector3(0, 0.7, 0)
-spread = 56.38
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 42.58
-initial_velocity_max = 42.58
-angular_velocity_max = 9.74
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-linear_accel_min = -73.87
-color = Color(0.290196, 0.384314, 1, 1)
-
-[node name="player" type="Node2D" node_paths=PackedStringArray("tool")]
+[node name="player" type="Node2D" node_paths=PackedStringArray("tool", "inventory")]
+process_mode = 3
 y_sort_enabled = true
 script = ExtResource("1_snmf5")
-tool = NodePath("CharacterBody2D/tool_base")
+tool = NodePath("CharacterBody2D/tool")
+inventory = NodePath("CanvasLayer/inventory")
 metadata/_edit_vertical_guides_ = [-140.0]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+process_mode = 1
 material = SubResource("ShaderMaterial_f1vss")
+
+[node name="tool" parent="CharacterBody2D" instance=ExtResource("3_ot15u")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 top_level = true
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_2fb0r")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(4, 4)
-position_smoothing_speed = 2.0
-rotation_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-
-[node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
-position = Vector2(4, -7)
-energy = 0.07
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 0.32549)
-texture = SubResource("GradientTexture2D_xuwvl")
-texture_scale = 0.19
 
 [node name="player" type="Sprite2D" parent="CharacterBody2D"]
 light_mask = 3
@@ -353,14 +316,6 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_i107x")
 parameters/idle/blend_position = Vector2(-0.00523561, 1)
 parameters/walk/blend_position = Vector2(0.638743, -0.021834)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D"]
-position = Vector2(-5, -38)
-amount = 115
-sub_emitter = NodePath(".")
-process_material = SubResource("ParticleProcessMaterial_suhmd")
-
-[node name="tool_base" parent="CharacterBody2D" instance=ExtResource("7_q7epj")]
-
 [node name="Area2D" type="Area2D" parent="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 0
@@ -369,3 +324,11 @@ collision_mask = 0
 top_level = true
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_2fb0r")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(5, 5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="inventory" parent="CanvasLayer" instance=ExtResource("5_kqjos")]
+visible = false

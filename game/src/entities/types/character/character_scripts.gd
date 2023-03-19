@@ -20,13 +20,11 @@ func _ready():
 	)
 
 func _process(delta):
-
 	super._process(delta)
 	var movementInfo = movement.call()
 
 	var direction = movementInfo[0]
 	var speed = movementInfo[1]
-
 	if direction != Vector2.ZERO: lastDirection = direction
 	if animationTree:		
 		if idleAnim:
