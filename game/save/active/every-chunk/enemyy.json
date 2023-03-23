@@ -1,0 +1,10 @@
+{
+	"constants_path" : "res://src/entities/types/character/enemy/zombie/enemy-constants.json",
+	"general_propoties": {
+		"posx": 0,
+		"posy": 0,
+	},
+	"character": {
+		"health": 5
+	}
+}

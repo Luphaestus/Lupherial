@@ -13,3 +13,4 @@ res://src/entities/types/character/shared_res/tools/hitbox.tscn
 res://src/entities/types/overlay/inventory/preview.tscn
 res://src/entities/types/overlay/inventory/slot.gd
 res://src/entities/types/overlay/inventory/inventory.gd
+res://src/entities/types/item/inventory/shared_res/InventoryItem.gd
