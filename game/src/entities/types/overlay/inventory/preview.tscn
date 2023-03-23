@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://brevs4hkgd52a"]
+
+[ext_resource type="Script" path="res://src/entities/types/overlay/inventory/preview.gd" id="1_ukfbs"]
+
+[node name="preview" type="Control" node_paths=PackedStringArray("node")]
+top_level = true
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ukfbs")
+node = NodePath("Node2D")
+
+[node name="Node2D" type="Node2D" parent="."]

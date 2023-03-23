@@ -3,22 +3,24 @@
 [ext_resource type="Script" path="res://src/entities/types/overlay/inventory/slot.gd" id="1_ra4ow"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtkqh"]
-bg_color = Color(0.184314, 0.172549, 0.145098, 1)
+bg_color = Color(0.211765, 0.211765, 0.211765, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
-[node name="slot" type="MarginContainer" node_paths=PackedStringArray("quantity_label")]
+[node name="slot" type="MarginContainer"]
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_ra4ow")
-quantity_label = NodePath("Panel/Label")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qtkqh")
-
-[node name="Label" type="Label" parent="Panel"]
-top_level = true
-layout_mode = 2
-offset_bottom = 23.0
-horizontal_alignment = 2
-vertical_alignment = 3

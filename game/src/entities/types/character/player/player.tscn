@@ -276,12 +276,13 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_i107x"]
 
-[node name="player" type="Node2D" node_paths=PackedStringArray("tool", "inventory")]
+[node name="player" type="Node2D" node_paths=PackedStringArray("tool", "inventory", "chatacterbody")]
 process_mode = 3
 y_sort_enabled = true
 script = ExtResource("1_snmf5")
 tool = NodePath("CharacterBody2D/tool")
 inventory = NodePath("CanvasLayer/inventory")
+chatacterbody = NodePath("CharacterBody2D")
 metadata/_edit_vertical_guides_ = [-140.0]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -326,7 +327,7 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_2fb0r")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(5, 5)
+zoom = Vector2(6, 6)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
