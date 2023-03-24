@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpspq0lbeprbu"]
+
+[ext_resource type="Script" path="res://title_screen/title/Continue.gd" id="1_w5xi1"]
+[ext_resource type="Script" path="res://title_screen/title/Create_new.gd" id="2_6sk3h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7acu"]
+content_margin_left = 40.0
+content_margin_top = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+
+[node name="title_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v7acu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "Lupherial
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Continue" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "Continue
+"
+flat = true
+alignment = 0
+script = ExtResource("1_w5xi1")
+
+[node name="Create_new" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "Create New Game"
+flat = true
+alignment = 0
+script = ExtResource("2_6sk3h")
+
+[node name="Options" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "Options"
+flat = true
+alignment = 0

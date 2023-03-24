@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="lopherial"
-run/main_scene="res://src/entities/chunk.tscn"
+run/main_scene="res://title_screen/title/title_screen.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 
 [autoload]
 
 SAVE_GLOBALS="*res://src/globals/save-globals.gd"
 Terrain_lookup="*res://src/entities/types/generation/terrain/terrain-lookup.gd"
-ITEM_GLOBALS="*res://src/globals/items.gd"
 
 [display]
 

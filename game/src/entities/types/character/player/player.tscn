@@ -1,10 +1,11 @@
-[gd_scene load_steps=35 format=3 uid="uid://bko7d0i563vv"]
+[gd_scene load_steps=36 format=3 uid="uid://dj8m42n0h8h37"]
 
 [ext_resource type="Script" path="res://src/entities/types/character/player/player.gd" id="1_snmf5"]
 [ext_resource type="Texture2D" uid="uid://dkdy3yjdwcfpt" path="res://src/entities/types/character/player/assets/Girl-Sheet.png" id="2_dc54y"]
 [ext_resource type="Shader" path="res://src/entities/types/character/shared_res/hit/hurt.gdshader" id="2_heiss"]
-[ext_resource type="PackedScene" uid="uid://dqto03y251o8v" path="res://src/entities/types/character/shared_res/tools/tool.tscn" id="3_ot15u"]
-[ext_resource type="PackedScene" uid="uid://bkwmb3hq87vui" path="res://src/entities/types/overlay/inventory/inventory.tscn" id="5_kqjos"]
+[ext_resource type="PackedScene" path="res://src/entities/types/character/shared_res/tools/tool.tscn" id="3_ot15u"]
+[ext_resource type="PackedScene" path="res://src/entities/types/overlay/inventory/inventory/inventory.tscn" id="5_kqjos"]
+[ext_resource type="PackedScene" path="res://src/entities/types/character/enemy/shared-res/health/health.tscn" id="6_tva6n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f1vss"]
 resource_local_to_scene = true
@@ -276,13 +277,15 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_i107x"]
 
-[node name="player" type="Node2D" node_paths=PackedStringArray("tool", "inventory", "chatacterbody")]
+[node name="player" type="Node2D" node_paths=PackedStringArray("tool", "inventory", "chatacterbody", "health")]
 process_mode = 3
 y_sort_enabled = true
+position = Vector2(0, -1)
 script = ExtResource("1_snmf5")
 tool = NodePath("CharacterBody2D/tool")
 inventory = NodePath("CanvasLayer/inventory")
 chatacterbody = NodePath("CharacterBody2D")
+health = NodePath("CanvasLayer/health")
 metadata/_edit_vertical_guides_ = [-140.0]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -332,4 +335,8 @@ zoom = Vector2(6, 6)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="inventory" parent="CanvasLayer" instance=ExtResource("5_kqjos")]
-visible = false
+position = Vector2(-4, 8)
+
+[node name="health" parent="CanvasLayer" instance=ExtResource("6_tva6n")]
+position = Vector2(127, 36)
+scale = Vector2(0.897707, 21.3149)

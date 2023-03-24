@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://sy8u1nc2dhie"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" uid="uid://y3u0da6tvoe0" path="res://src/entities/types/item/world/shared_src/world_item.tscn" id="2_ecft5"]
+[ext_resource type="PackedScene" path="res://src/entities/types/item/world/shared_src/world_item.tscn" id="2_ecft5"]
 
 [sub_resource type="GDScript" id="GDScript_52v8f"]
 script/source = "extends Entity

@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://src/entities/types/overlay/inventory/inventory/inventory.gd" id="1_ixru7"]
+[ext_resource type="Script" path="res://src/entities/types/overlay/inventory/inventory/drop.gd" id="2_fiar5"]
+[ext_resource type="Texture2D" uid="uid://dty78urosuaby" path="res://src/entities/types/overlay/inventory/inventory/drop.png" id="2_wcqpd"]
+[ext_resource type="Texture2D" uid="uid://c12frv5ikwk8k" path="res://src/entities/types/overlay/inventory/inventory/inventory.png" id="3_qr10i"]
+[ext_resource type="Script" path="res://src/entities/types/overlay/inventory/inventory/container_size.gd" id="3_vmr8t"]
+[ext_resource type="Texture2D" uid="uid://cc3m1nbly0bl5" path="res://src/entities/types/overlay/inventory/inventory/equipment.png" id="5_m5qro"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4h37"]
+texture = ExtResource("2_wcqpd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7qfty"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("3_qr10i")
+texture_margin_left = 32.0
+texture_margin_top = 20.0669
+texture_margin_right = 27.0
+texture_margin_bottom = 37.0
+expand_margin_left = 32.0
+expand_margin_top = 20.0
+expand_margin_right = 26.0
+expand_margin_bottom = 22.0
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oonfq"]
+texture = ExtResource("5_m5qro")
+
+[node name="inventory" type="Node2D" node_paths=PackedStringArray("grid", "grid_size")]
+script = ExtResource("1_ixru7")
+slot_path = "res://src/entities/types/overlay/inventory/slot/slot.tscn"
+grid = NodePath("PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/GridContainer")
+grid_size = NodePath("PanelContainer/VBoxContainer/HBoxContainer/MarginContainer")
+slot_size = 60
+number_of_slots = 40
+columns = 5
+
+[node name="PanelContainer" type="MarginContainer" parent="."]
+offset_left = 33.0
+offset_top = 28.0
+offset_right = 108.0
+offset_bottom = 54.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="PanelContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("root")]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4h37")
+script = ExtResource("2_fiar5")
+root = NodePath("../../../..")
+
+[node name="MarginContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_7qfty")
+script = ExtResource("3_vmr8t")
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 13
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oonfq")
+
+[node name="Panel2" type="Panel" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oonfq")
+
+[node name="Panel3" type="Panel" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oonfq")
+
+[node name="Panel4" type="Panel" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oonfq")

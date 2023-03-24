@@ -136,6 +136,8 @@ func CopyDirectory(from:String, to:String) -> void:
 			var to_path := to+dir+"/"+file
 			
 			DirAccess.copy_absolute(from_path, to_path)
+		
+		CopyDirectory(from+dir+"/", to+dir+"/")
 func DeleteDirectory(from:String) -> void:
 	if not DirAccess.dir_exists_absolute(from): return
 	var dirs := DirAccess.get_directories_at(from)
@@ -144,12 +146,16 @@ func DeleteDirectory(from:String) -> void:
 		var files := DirAccess.get_files_at(from+dir)
 		for file in files:
 			DirAccess.remove_absolute(from+dir+"/"+file)
-		DirAccess.remove_absolute(from+dir)
+		DeleteDirectory(from+dir+"/")
 	DirAccess.remove_absolute(from)
-func CreateSaveDirectory() -> void:
-	DirAccess.make_dir_recursive_absolute(SAVE_GLOBALS.PERMANENTFULL+"always-load")
-	DirAccess.make_dir_recursive_absolute(SAVE_GLOBALS.PERMANENTFULL+"every-chunk")
 
+
+	
+func CreateSaveDirectory() -> void:
+	var saveTemplate = "res://src/save/"
+	if not DirAccess.dir_exists_absolute(SAVE_GLOBALS.SAVE_LOCATION):
+		CopyDirectory(saveTemplate, SAVE_GLOBALS.SAVE_LOCATION)
+		
 func StartAutoSave(delay:float = .1)->void:
 	var timer := Timer.new()
 

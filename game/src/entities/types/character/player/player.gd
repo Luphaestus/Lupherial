@@ -2,7 +2,7 @@ extends character
 @export var tool : Tool
 @export var inventory : Inventory
 @export var chatacterbody : CharacterBody2D
-
+@export var health : Health
 var mousemode 
 
 func _ready():
@@ -16,10 +16,13 @@ func _ready():
 	
 	movement = func movement() -> Array: 
 		var direction = Input.get_vector("left", "right", "up", "down") 
+		if direction!=Vector2.ZERO:
+			DATA["character"]["health"] -= .1
+			health.change_value(DATA["character"]["health"])
 		return [direction, 1]
 	get_damage = func get_damage() -> int: return 1
 
-
+	health.start(100, DATA["character"]["health"])
 
 func add_item(item_object:Object):
 	
@@ -31,6 +34,8 @@ func add_item(item_object:Object):
 
 func _process(delta: float) -> void:
 	super._process(delta)
+	DATA["character"]["health"] -= .01
+	health.change_value(DATA["character"]["health"])
 	if Input.is_action_just_pressed("toggle_inventory"):
 		inventory.visible = not inventory.visible
 		if inventory.visible:

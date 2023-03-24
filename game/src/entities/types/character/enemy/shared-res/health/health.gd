@@ -1,4 +1,7 @@
 extends Node2D
+
+class_name Health
+
 @export var gradual : TextureProgressBar
 @export var instant : TextureProgressBar
 
@@ -21,8 +24,10 @@ func change_value(value):
 	if currentValue > value:
 		instant.value = value
 		
-	
-	instant.tint_progress = gradient.get_color(round(numberOfpoints * (currentValue / maxValue)))
+	print(round(numberOfpoints * (currentValue / maxValue)))
+	print(numberOfpoints)
+	print()
+	instant.tint_progress = gradient.sample(currentValue)
 	currentValue = value
 	
 	

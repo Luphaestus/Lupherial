@@ -1,2 +1,2 @@
-﻿46477
+﻿38981
 /opt/godot4-mono-bin/godot4-mono/Godot_v4.0-rc3_mono_linux.x86_64

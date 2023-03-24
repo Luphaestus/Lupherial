@@ -13,6 +13,7 @@ var real_scale = 0
 func init(new_size):
 	real_scale =  Vector2(new_size)/texture_.texture.get_size()
 	real_scale *= Vector2(len(geometry[0]), len(geometry))
+	
 	texture_.scale = real_scale
 
 

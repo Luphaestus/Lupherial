@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=134 format=3 uid="uid://d4eu7rle65fk3"]
+[gd_resource type="TileSet" load_steps=134 format=3]
 
 [ext_resource type="Texture2D" uid="uid://dha8nfl2irdds" path="res://src/entities/types/generation/terrain/assets/desert/desertPath_.png" id="1_0rusl"]
 [ext_resource type="Texture2D" uid="uid://ctaceiq77vxya" path="res://src/entities/types/generation/terrain/assets/tundra/tundra_water.png" id="1_i1jrb"]

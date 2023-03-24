@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/entities/types/overlay/inventory/slot/slot.gd" id="1_vfvqd"]
+[ext_resource type="Texture2D" uid="uid://bf12qjob8qqje" path="res://src/entities/types/overlay/inventory/slot/slot.png" id="2_ex1wl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ienjj"]
+texture = ExtResource("2_ex1wl")
+
+[node name="slot" type="MarginContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_vfvqd")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ienjj")
