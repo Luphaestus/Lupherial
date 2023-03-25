@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cvfk48516240x"]
+[gd_scene load_steps=32 format=3 uid="uid://cvfk48516240x"]
 
 [ext_resource type="Script" path="res://src/entities/types/character/enemy/zombie/enemie.gd" id="1_vatqu"]
 [ext_resource type="Shader" path="res://src/entities/types/character/shared_res/hit/hurt.gdshader" id="2_vkwap"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://r1wo1wpbmywj" path="res://src/entities/types/character/shared_res/char_anim_tree.tscn" id="4_o86b8"]
 [ext_resource type="PackedScene" path="res://src/entities/types/character/shared_res/hit/hurtbox.tscn" id="6_7ba1y"]
 [ext_resource type="PackedScene" path="res://src/entities/types/character/shared_res/tools/tool.tscn" id="6_8cbe6"]
-[ext_resource type="PackedScene" path="res://src/entities/types/character/enemy/shared-res/health/health.tscn" id="7_ckpgj"]
+[ext_resource type="Script" path="res://src/entities/types/character/enemy/shared-res/health/health.gd" id="7_035wh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1hl8v"]
 resource_local_to_scene = true
@@ -307,10 +307,37 @@ _data = {
 "right-walk": SubResource("Animation_mqddh")
 }
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_o3uew"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_hs1b3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkn1s"]
 size = Vector2(8, 13)
+
+[sub_resource type="Gradient" id="Gradient_acpch"]
+resource_local_to_scene = true
+colors = PackedColorArray(1, 0, 0, 1, 0.0386474, 0.961353, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_bcmvi"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.226707, 0.226707, 0.226707, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7gvsf"]
+gradient = SubResource("Gradient_bcmvi")
+
+[sub_resource type="Gradient" id="Gradient_dc4c2"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.689608, 0.495694, 0.0924051, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nwhhq"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_dc4c2")
+
+[sub_resource type="Gradient" id="Gradient_p16fe"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tiddd"]
+gradient = SubResource("Gradient_p16fe")
 
 [node name="zombie" type="Node2D" node_paths=PackedStringArray("health", "tool", "pos")]
 y_sort_enabled = true
@@ -358,7 +385,7 @@ libraries = {
 
 [node name="AnimationTree2" parent="CharacterBody2D" instance=ExtResource("4_o86b8")]
 active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_o3uew")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_hs1b3")
 
 [node name="hurtbox" parent="CharacterBody2D" node_paths=PackedStringArray("root_node") instance=ExtResource("6_7ba1y")]
 collision_layer = 4
@@ -373,9 +400,28 @@ shape = SubResource("RectangleShape2D_gkn1s")
 root_node = NodePath("../..")
 target = "player"
 
-[node name="health" parent="CharacterBody2D" instance=ExtResource("7_ckpgj")]
+[node name="health" type="Node2D" parent="CharacterBody2D" node_paths=PackedStringArray("gradual", "instant")]
 position = Vector2(0, -13)
 scale = Vector2(0.0988744, -2.44335)
+script = ExtResource("7_035wh")
+gradual = NodePath("gradual")
+instant = NodePath("instant")
+gradient = SubResource("Gradient_acpch")
+
+[node name="gradual" type="TextureProgressBar" parent="CharacterBody2D/health"]
+offset_left = -128.0
+offset_top = -1.0
+offset_right = 128.0
+step = 0.05
+texture_under = SubResource("GradientTexture1D_7gvsf")
+texture_progress = SubResource("GradientTexture1D_nwhhq")
+
+[node name="instant" type="TextureProgressBar" parent="CharacterBody2D/health"]
+offset_left = -128.0
+offset_top = -1.0
+offset_right = 128.0
+value = 25.0
+texture_progress = SubResource("GradientTexture1D_tiddd")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 

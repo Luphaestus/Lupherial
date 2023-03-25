@@ -13,7 +13,7 @@ func create_entity(pos : Vector2i, type:String):
 	get_parent().call_deferred("add_child", itemObject)
 	
 func _ready() -> void:
-	health.start(int(DATA["constants"]["character"]["max_health"]), int(DATA["character"]["health"]))
+	health.start(int(DATA["constants"]["character"]["max_health"]), int(DATA["character"]["health"]), .05)
 	if randi_range(0, 10) == 0:
 		super._ready()
 	else: queue_free()

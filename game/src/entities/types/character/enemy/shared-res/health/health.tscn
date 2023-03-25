@@ -1,14 +1,6 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://c7plwwfmlafpj"]
 
 [ext_resource type="Script" path="res://src/entities/types/character/enemy/shared-res/health/health.gd" id="1_uwqbx"]
-
-[sub_resource type="Gradient" id="Gradient_yj2ee"]
-offsets = PackedFloat32Array(0.326733, 0.39604, 0.445545)
-colors = PackedColorArray(1, 0, 0, 1, 0.848863, 0.547324, 1.92523e-06, 1, 0, 1, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ru8aw"]
-gradient = SubResource("Gradient_yj2ee")
-width = 100
 
 [sub_resource type="Gradient" id="Gradient_bcmvi"]
 offsets = PackedFloat32Array(1)
@@ -38,7 +30,6 @@ scale = Vector2(0.107505, -2.1067)
 script = ExtResource("1_uwqbx")
 gradual = NodePath("gradual")
 instant = NodePath("instant")
-colourGradient = SubResource("GradientTexture1D_ru8aw")
 
 [node name="gradual" type="TextureProgressBar" parent="."]
 offset_left = -128.0

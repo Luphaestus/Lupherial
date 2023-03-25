@@ -1,3 +1,4 @@
+MarginContainer
 LineEdit
 Label
 Control
@@ -6,7 +7,6 @@ Button
 CheckBox
 VBoxContainer
 HBoxContainer
-MarginContainer
 Panel
 HSplitContainer
 NinePatchRect
@@ -30,4 +30,3 @@ ProgressBar
 TileMap
 Area2D
 CollisionShape2D
-GPUParticles2D

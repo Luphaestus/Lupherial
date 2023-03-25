@@ -5,30 +5,28 @@ class_name Health
 @export var gradual : TextureProgressBar
 @export var instant : TextureProgressBar
 
-@export var colourGradient : GradientTexture1D
-var gradient : Gradient
-var numberOfpoints
+@export var gradient : Gradient
+
 
 
 var currentValue : float
-var maxValue = 10
-
+var maxValue := 10
+var gradualVal = .1
 
 func _process(_delta: float) -> void:
 	if gradual.value >= currentValue:
-		gradual.value -= .05
+		gradual.value -= gradualVal
+	
 	elif gradual.value != currentValue:
 		gradual.value = currentValue	
 
 func change_value(value):
 	if currentValue > value:
 		instant.value = value
-		
-	print(round(numberOfpoints * (currentValue / maxValue)))
-	print(numberOfpoints)
-	print()
-	instant.tint_progress = gradient.sample(currentValue)
+
 	currentValue = value
+	instant.tint_progress = gradient.sample(currentValue/maxValue)
+
 	
 	
 
@@ -36,16 +34,15 @@ func _ready() -> void:
 
 	visible = false
 
-func start(max_health:int, current_level):
+func start(max_health:int, current_level, gradual_decline):
 	visible = true
-	var maxValue = max_health
+	maxValue = max_health
+	gradualVal = gradual_decline
 	gradual.max_value = maxValue
 	instant.max_value = maxValue
 	currentValue = current_level
 	gradual.value = currentValue
 	instant.value = currentValue
 	
-	colourGradient.width = max_health
-	gradient = colourGradient.gradient
-	numberOfpoints = gradient.get_point_count()
 	instant.tint_progress = gradient.sample(currentValue)
+	

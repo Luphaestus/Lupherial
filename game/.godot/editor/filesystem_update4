@@ -20,3 +20,4 @@ res://src/entities/types/character/enemy/shared-res/health/health.gd
 res://src/entities/types/character/player/player.gd
 res://src/entities/types/character/player/player.json
 res://src/save/permanent/always-load/playerNode2D33487323570167959824467177.json
+res://src/entities/types/character/enemy/shared-res/health/health.tscn
