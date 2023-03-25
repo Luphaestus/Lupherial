@@ -13,6 +13,7 @@
 		<link href="https://fonts.googleapis.com/css?display=swap&family=Montserrat:500,500italic%7CDM+Sans:400,400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="assets/main.css" />
 		<noscript><link rel="stylesheet" href="assets/noscript.css" /></noscript>
+		
 	</head>
 	<body class="is-loading">
 		<div id="wrapper">
@@ -28,7 +29,7 @@
 										<li>
 											<a href="#design" class="button n01"><svg><use xlink:href="assets/icons.svg#art"></use></svg><span class="label">Design</span></a>
 										</li><li>
-											<a href="https://github.com/Luphaestus/Lupherial/" class="button n02"><svg><use xlink:href="assets/icons.svg#download"></use></svg><span class="label">Download</span></a>
+											<a href="https://github.com/Luphaestus/Lupherial/" class="button n02" id="downloadButton"><svg><use xlink:href="assets/icons.svg#download"></use></svg><span class="label">Download</span></a>
 										</li><li>
 											<a href="https://domain.ext/path" class="button n03"><svg><use xlink:href="assets/icons.svg#github"></use></svg><span class="label">View Source</span></a>
 										</li>
@@ -58,5 +59,24 @@
 			</div>
 		</div>
 		<script src="assets/main.js"></script>
+		<script>
+    var platform = window.navigator.platform.toLowerCase();
+
+    var baseUrl = 'https://github.com/Luphaestus/Lupherial/releases/latest/download/';
+    var downloadLinks = {
+        windows: 'lupherial-windows.zip',
+        mac: 'lupherial-macos.zip',
+        linux: 'lupherial-linux.zip'
+    };
+
+    var downloadButton = document.getElementById('downloadButton');
+    if (platform.indexOf('win') > -1) {
+        downloadButton.href = baseUrl + downloadLinks.windows;
+    } else if (platform.indexOf('mac') > -1) {
+        downloadButton.href = baseUrl + downloadLinks.mac;
+    } else if (platform.indexOf('linux') > -1) {
+        downloadButton.href = baseUrl + downloadLinks.linux;
+    }
+  </script>
 	</body>
 </html>
