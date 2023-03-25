@@ -70,7 +70,7 @@ if [[ "$override" == false && -z $(git status --porcelain) ]]; then
   echo "Nothing to commit. Exiting."
   exit 0
 fi
-rm -r "./output.txt" > output.txt 2>&1
+rm -r "./../log.txt" > ../log.txt 2>&1
 
 echo "┌──────────────────────────────────────────────────────────────────────────────────────────────────────┐"
 
@@ -79,13 +79,13 @@ REPO_NAME="Lupherial"
 GITHUB_TOKEN="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"
 
 #drawProgressBar 4 0 "Syncing with Github:"
-git fetch origin #> output.txt 2>&1
+git fetch origin #> ../log.txt 2>&1
 #drawProgressBar 4 1 "Syncing with Github:"
-git merge origin/main #> output.txt 2>&1
+git merge origin/main #> ../log.txt 2>&1
 #drawProgressBar 4 2 "Syncing with Github:"
-git commit -m "Automatic Push" #> output.txt 2>&1
+git commit -m "Automatic Push" #> ../log.txt 2>&1
 #drawProgressBar 4 3 "Syncing with Github:"
-git push https://${REPO_OWNER}:${GITHUB_TOKEN}@github.com/${REPO_OWNER}/${REPO_NAME}.git main #> output.txt 2>&1
+git push https://${REPO_OWNER}:${GITHUB_TOKEN}@github.com/${REPO_OWNER}/${REPO_NAME}.git main #> ../log.txt 2>&1
 #drawProgressBar 4 4 "Syncing with Github:"
 
 if $github; then
@@ -93,36 +93,36 @@ if $github; then
   exit 0
 fi
 drawProgressBar 3 0 "Removing old compiled directories: "
-rm -r -f "../bin/lupherial-linux/lupherial" > output.txt 2>&1
+rm -r -f "../bin/lupherial-linux/lupherial" > ../log.txt 2>&1
 drawProgressBar 3 1 "Removing old compiled directories: "
-rm -r -f "../bin/lupherial-macos/lupherial" > output.txt 2>&1
+rm -r -f "../bin/lupherial-macos/lupherial" > ../log.txt 2>&1
 drawProgressBar 3 2 "Removing old compiled directories: "
-rm -r -f "../bin/lupherial-windows/lupherial" > output.txt 2>&1
+rm -r -f "../bin/lupherial-windows/lupherial" > ../log.txt 2>&1
 drawProgressBar 3 3 "Removing old compiled directories: "
 
 drawProgressBar 3 0 "Coppying updated files:"
-cp -R "" "../bin/lupherial-linux" > output.txt 2>&1
+cp -R "" "../bin/lupherial-linux" > ../log.txt 2>&1
 drawProgressBar 3 1 "Coppying updated files:"
-cp -R "" "../bin/lupherial-macos" > output.txt 2>&1
+cp -R "" "../bin/lupherial-macos" > ../log.txt 2>&1
 drawProgressBar 3 2 "Coppying updated files:"
-cp -R "" "../bin/lupherial-windows" > output.txt 2>&1
+cp -R "" "../bin/lupherial-windows" > ../log.txt 2>&1
 drawProgressBar 3 3 "Coppying updated files:"
 
 drawProgressBar 3 0 "Removing old compiled zips: "
-rm -r "../out/lupherial-linux.zip" > output.txt 2>&1
+rm -r "../out/lupherial-linux.zip" > ../log.txt 2>&1
 drawProgressBar 3 1 "Removing old compiled zips: "
-rm -r "../out/lupherial-macos.zip" > output.txt 2>&1
+rm -r "../out/lupherial-macos.zip" > ../log.txt 2>&1
 drawProgressBar 3 2 "Removing old compiled zips: "
-rm -r "../out/lupherial-windows.zip" > output.txt 2>&1
+rm -r "../out/lupherial-windows.zip" > ../log.txt 2>&1
 drawProgressBar 3 3 "Removing old compiled zips: "
 
 
 drawProgressBar 3 0 "Ziping New Version:"
-zip -r "../out/lupherial-linux.zip" "../bin/lupherial-linux" > output.txt 2>&1
+zip -r "../out/lupherial-linux.zip" "../bin/lupherial-linux" > ../log.txt 2>&1
 drawProgressBar 3 1 "Ziping New Version:"
-zip -r "../out/lupherial-macos.zip" "../bin/lupherial-macos" > output.txt 2>&1
+zip -r "../out/lupherial-macos.zip" "../bin/lupherial-macos" > ../log.txt 2>&1
 drawProgressBar 3 2 "Ziping New Version:"
-zip -r "../out/lupherial-windows.zip" "../bin/lupherial-windows" > output.txt 2>&1
+zip -r "../out/lupherial-windows.zip" "../bin/lupherial-windows" > ../log.txt 2>&1
 drawProgressBar 3 3 "Ziping New Version:"
 
 
@@ -142,7 +142,7 @@ drawProgressBar 5 4 "Creating new release:"
 curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
 -H "Content-Type: application/json" \
 -d '{"tag_name": "'"$new_version"'", "name": "Lupherial: Release '"$new_version"'", "body": "We are excited to announce that our top-down RPG game is entering a health and well-being competition! With our game, you can embark on a journey of mental wellness and discover the impact of mental health on your life. Our engaging gameplay and immersive storytelling will take you on a journey of self-discovery and empowerment as you learn how to overcome mental health challenges.\\nOne of the key features of our game is procedural generation, which ensures that every playthrough is unique and challenging. Additionally, our enemy pathfinding and resource gathering mechanics add an extra layer of depth and excitement to the gameplay experience.\\nWe believe that our game has the power to make a positive impact on the mental well-being of players. By playing our game, you can learn important skills and strategies for managing mental health challenges, while also enjoying a fun and engaging gaming experience. Download now and join us on this journey towards greater mental wellness!\\nNote: This action was done automatically, if you discover a bug please contact Lupheastus"}' \
-https://api.github.com/repos/Luphaestus/$REPO_NAME/releases > output.txt 2>&1
+https://api.github.com/repos/Luphaestus/$REPO_NAME/releases > ../log.txt 2>&1
 drawProgressBar 4 0 "Creating new release:"
 # Get the latest release ID
 release_id=$(curl --silent --header "Authorization: token $GITHUB_TOKEN" \
