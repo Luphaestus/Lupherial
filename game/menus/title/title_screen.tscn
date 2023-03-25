@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpspq0lbeprbu"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://title_screen/title/Continue.gd" id="1_w5xi1"]
-[ext_resource type="Script" path="res://title_screen/title/Create_new.gd" id="2_6sk3h"]
+[ext_resource type="Script" path="res://menus/title/Continue.gd" id="1_w5xi1"]
+[ext_resource type="Script" path="res://menus/title/Create_new.gd" id="2_6sk3h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7acu"]
 content_margin_left = 40.0

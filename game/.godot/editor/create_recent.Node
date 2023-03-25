@@ -1,8 +1,13 @@
+Label
+Timer
+Node2D
+Node
+CollisionShape2D
+HurtBox
+PanelContainer
 MarginContainer
 LineEdit
-Label
 Control
-PanelContainer
 Button
 CheckBox
 VBoxContainer
@@ -12,12 +17,10 @@ HSplitContainer
 NinePatchRect
 AnimationPlayer
 Sprite2D
-Node2D
 HSeparator
 Camera2D
 Entity
 CanvasLayer
-Node
 Container
 TextureRect
 ColorRect
@@ -27,6 +30,3 @@ CanvasGroup
 TextureProgressBar
 CenterContainer
 ProgressBar
-TileMap
-Area2D
-CollisionShape2D

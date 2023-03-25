@@ -4,8 +4,8 @@
 [ext_resource type="Shader" path="res://src/entities/types/character/shared_res/hit/hurt.gdshader" id="2_vkwap"]
 [ext_resource type="Texture2D" uid="uid://dkdy3yjdwcfpt" path="res://src/entities/types/character/player/assets/Girl-Sheet.png" id="3_oe1to"]
 [ext_resource type="PackedScene" uid="uid://r1wo1wpbmywj" path="res://src/entities/types/character/shared_res/char_anim_tree.tscn" id="4_o86b8"]
-[ext_resource type="PackedScene" path="res://src/entities/types/character/shared_res/hit/hurtbox.tscn" id="6_7ba1y"]
-[ext_resource type="PackedScene" path="res://src/entities/types/character/shared_res/tools/tool.tscn" id="6_8cbe6"]
+[ext_resource type="PackedScene" uid="uid://exjf4qoiefci" path="res://src/entities/types/character/shared_res/hit/hurtbox.tscn" id="6_7ba1y"]
+[ext_resource type="PackedScene" uid="uid://rfl6862j46bd" path="res://src/entities/types/character/shared_res/tools/tool.tscn" id="6_8cbe6"]
 [ext_resource type="Script" path="res://src/entities/types/character/enemy/shared-res/health/health.gd" id="7_035wh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1hl8v"]
@@ -307,7 +307,7 @@ _data = {
 "right-walk": SubResource("Animation_mqddh")
 }
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_hs1b3"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_wsrrq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkn1s"]
 size = Vector2(8, 13)
@@ -385,7 +385,7 @@ libraries = {
 
 [node name="AnimationTree2" parent="CharacterBody2D" instance=ExtResource("4_o86b8")]
 active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_hs1b3")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_wsrrq")
 
 [node name="hurtbox" parent="CharacterBody2D" node_paths=PackedStringArray("root_node") instance=ExtResource("6_7ba1y")]
 collision_layer = 4

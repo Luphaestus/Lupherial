@@ -9,6 +9,6 @@
 		"save_with_chunk": false
 	},
 	"character": {
-		"max_health": 10
+		"max_health": 100
 	}
 }
