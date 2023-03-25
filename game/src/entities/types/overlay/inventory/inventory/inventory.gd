@@ -7,6 +7,7 @@ class_name Inventory
 @export var slot_size = 18
 @export var number_of_slots = 4
 @export var columns:= 2
+@export var drop_panel : drop_inventory
 
 var size_per_cell
 var rows
@@ -89,3 +90,7 @@ func _ready() -> void:
 		slot.init(size_per_cell, self)
 		grid.add_child(slot)
 		slots.append(slot)
+		
+func drop(pos):
+	drop_panel.drop(pos)
+	

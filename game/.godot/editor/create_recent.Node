@@ -1,10 +1,12 @@
+PanelContainer
 Label
-Timer
+CanvasLayer
+Container
 Node2D
+Timer
 Node
 CollisionShape2D
 HurtBox
-PanelContainer
 MarginContainer
 LineEdit
 Control
@@ -20,8 +22,6 @@ Sprite2D
 HSeparator
 Camera2D
 Entity
-CanvasLayer
-Container
 TextureRect
 ColorRect
 GridContainer

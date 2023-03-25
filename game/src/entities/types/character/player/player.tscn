@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dkdy3yjdwcfpt" path="res://src/entities/types/character/player/assets/Girl-Sheet.png" id="2_dc54y"]
 [ext_resource type="Shader" path="res://src/entities/types/character/shared_res/hit/hurt.gdshader" id="2_heiss"]
 [ext_resource type="PackedScene" uid="uid://rfl6862j46bd" path="res://src/entities/types/character/shared_res/tools/tool.tscn" id="3_ot15u"]
-[ext_resource type="PackedScene" path="res://src/entities/types/overlay/inventory/inventory/inventory.tscn" id="5_kqjos"]
+[ext_resource type="PackedScene" uid="uid://1ekw37dwxcwr" path="res://src/entities/types/overlay/inventory/inventory/inventory.tscn" id="5_kqjos"]
 [ext_resource type="PackedScene" uid="uid://exjf4qoiefci" path="res://src/entities/types/character/shared_res/hit/hurtbox.tscn" id="5_l1jro"]
 [ext_resource type="PackedScene" uid="uid://c7plwwfmlafpj" path="res://src/entities/types/character/enemy/shared-res/health/health.tscn" id="6_tva6n"]
 [ext_resource type="Script" path="res://src/entities/types/character/player/timer.gd" id="8_riws2"]
@@ -287,7 +287,7 @@ resource_local_to_scene = true
 offsets = PackedFloat32Array(0, 0.202899, 0.468599, 0.661836, 0.980676)
 colors = PackedColorArray(1, 0, 0, 1, 0.994242, 0.618735, 0.285372, 1, 0.0386474, 0.961353, 0, 1, 0.905508, 0.650549, 0.258873, 1, 0.905882, 0, 0, 1)
 
-[node name="player" type="Node2D" node_paths=PackedStringArray("tool", "inventory", "chatacterbody", "health")]
+[node name="player" type="Node2D" node_paths=PackedStringArray("tool", "inventory", "chatacterbody", "health", "wins")]
 process_mode = 3
 y_sort_enabled = true
 position = Vector2(0, -1)
@@ -296,6 +296,7 @@ tool = NodePath("CharacterBody2D/tool")
 inventory = NodePath("CanvasLayer/inventory")
 chatacterbody = NodePath("CharacterBody2D")
 health = NodePath("CanvasLayer/health")
+wins = NodePath("CanvasLayer/Node2D/Label")
 metadata/_edit_vertical_guides_ = [-140.0]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -349,7 +350,7 @@ shape = SubResource("RectangleShape2D_x40qs")
 position = Vector2(-4, 8)
 
 [node name="health" parent="CanvasLayer" instance=ExtResource("6_tva6n")]
-position = Vector2(121, 17)
+position = Vector2(1006, 41)
 scale = Vector2(0.746724, -15.2385)
 gradient = SubResource("Gradient_fhtob")
 
@@ -363,6 +364,14 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 30
 script = ExtResource("8_riws2")
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer"]
+
+[node name="Label" type="Label" parent="CanvasLayer/Node2D"]
+offset_left = 748.0
+offset_top = 38.0
+offset_right = 788.0
+offset_bottom = 61.0
 
 [connection signal="area_exited" from="CharacterBody2D/hurtbox" to="." method="_on_hurtbox_area_exited"]
 

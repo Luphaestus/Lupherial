@@ -2,7 +2,7 @@ extends MarginContainer
 
 class_name InventoryItem
 
-var world_entity_path : String
+var world_entity : String
 var stack_size : int
 var geometry
 

@@ -3,6 +3,8 @@ extends character
 @export var inventory : Inventory
 @export var chatacterbody : CharacterBody2D
 @export var health : Health
+
+@export var wins : Label
 var mousemode 
 
 func _ready():
@@ -42,6 +44,7 @@ func _process(delta: float) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			tool.set_process_mode(Node.PROCESS_MODE_DISABLED)
 		else:
+			inventory.drop(chatacterbody.global_position)
 			Input.set_mouse_mode(mousemode)
 			tool.set_process_mode(Node.PROCESS_MODE_INHERIT)
 			

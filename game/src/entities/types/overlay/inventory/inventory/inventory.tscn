@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=10 format=3 uid="uid://1ekw37dwxcwr"]
 
 [ext_resource type="Script" path="res://src/entities/types/overlay/inventory/inventory/inventory.gd" id="1_ixru7"]
 [ext_resource type="Script" path="res://src/entities/types/overlay/inventory/inventory/drop.gd" id="2_fiar5"]
@@ -29,7 +29,7 @@ draw_center = false
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oonfq"]
 texture = ExtResource("5_m5qro")
 
-[node name="inventory" type="Node2D" node_paths=PackedStringArray("grid", "grid_size")]
+[node name="inventory" type="Node2D" node_paths=PackedStringArray("grid", "grid_size", "drop_panel")]
 script = ExtResource("1_ixru7")
 slot_path = "res://src/entities/types/overlay/inventory/slot/slot.tscn"
 grid = NodePath("PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/GridContainer")
@@ -37,6 +37,7 @@ grid_size = NodePath("PanelContainer/VBoxContainer/HBoxContainer/MarginContainer
 slot_size = 60
 number_of_slots = 40
 columns = 5
+drop_panel = NodePath("PanelContainer/VBoxContainer/HBoxContainer/Panel")
 
 [node name="PanelContainer" type="MarginContainer" parent="."]
 offset_left = 33.0
