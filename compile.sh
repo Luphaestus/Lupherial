@@ -79,9 +79,9 @@ REPO_NAME="Lupherial"
 GITHUB_TOKEN="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"
 
 drawProgressBar 4 0 "Syncing with Github:"
-git fetch origin output.txt 2>&1 
+git fetch origin output.txt > output.txt 2>&1
 drawProgressBar 4 1 "Syncing with Github:"
-git merge origin/main output.txt 2>&1
+git merge origin/main output.txt > output.txt 2>&1
 drawProgressBar 4 2 "Syncing with Github:"
 git commit -m "Automatic Push" > output.txt 2>&1
 drawProgressBar 4 3 "Syncing with Github:"
