@@ -78,14 +78,13 @@ REPO_OWNER="Luphaestus"
 REPO_NAME="Lupherial"
 GITHUB_TOKEN=$(cat ../credentials.txt)
 
-#drawProgressBar 4 0 "Syncing with Github:"
-git pull origin #> ../log.txt 2>&1
-#drawProgressBar 4 1 "Syncing with Github:"
-#drawProgressBar 4 2 "Syncing with Github:"
-git commit -m "Automatic Push" #> ../log.txt 2>&1
-#drawProgressBar 4 3 "Syncing with Github:"
-git push https://${REPO_OWNER}:${GITHUB_TOKEN}@github.com/${REPO_OWNER}/${REPO_NAME}.git main #> ../log.txt 2>&1
-#drawProgressBar 4 4 "Syncing with Github:"
+drawProgressBar 3 0 "Syncing with Github:"
+git pull origin > ../log.txt 2>&1
+drawProgressBar 3 1 "Syncing with Github:"
+git commit -m "Automatic Push" > ../log.txt 2>&1
+drawProgressBar 3 2 "Syncing with Github:"
+git push https://${REPO_OWNER}:${GITHUB_TOKEN}@github.com/${REPO_OWNER}/${REPO_NAME}.git main > ../log.txt 2>&1
+drawProgressBar 3 3 "Syncing with Github:"
 
 if $github; then
   echo "└──────────────────────────────────────────────────────────────────────────────────────────────────────┘"
