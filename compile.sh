@@ -76,7 +76,7 @@ echo "┌───────────────────────�
 
 REPO_OWNER="Luphaestus"
 REPO_NAME="Lupherial"
-GITHUB_TOKEN="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"
+GITHUB_TOKEN=$(cat ../credentials.txt)
 
 #drawProgressBar 4 0 "Syncing with Github:"
 git pull origin #> ../log.txt 2>&1
