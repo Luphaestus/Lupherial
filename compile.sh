@@ -78,10 +78,10 @@ REPO_OWNER="Luphaestus"
 REPO_NAME="Lupherial"
 GITHUB_TOKEN="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"
 
-drawProgressBar 3 0 "Syncing with Github:"
-git commit -m "Automatic Push" > output.txt 2>&1
 drawProgressBar 3 1 "Syncing with Github:"
 git pull origin main > output.txt 2>&1
+drawProgressBar 3 0 "Syncing with Github:"
+git commit -m "Automatic Push" > output.txt 2>&1
 drawProgressBar 3 2 "Syncing with Github:"
 git push https://${REPO_OWNER}:${GITHUB_TOKEN}@github.com/${REPO_OWNER}/${REPO_NAME}.git main > output.txt 2>&1
 drawProgressBar 3 3 "Syncing with Github:"
