@@ -34,7 +34,7 @@ func add_item(item_object:Object):
 
 func _process(delta: float) -> void:
 	super._process(delta)
-	DATA["character"]["health"] -= .01
+	DATA["character"]["health"] -= .1
 	if Input.is_action_just_pressed("toggle_inventory"):
 		inventory.visible = not inventory.visible
 		if inventory.visible:
@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 	if DATA["character"]["health"] <= 0 or DATA["character"]["health"] >= DATA["constants"]["character"]["max_health"]:
 		get_tree().change_scene_to_file("res://menus/game_over/game_over.tscn")
 	
-	DATA["character"]["health"] += len(current_intesections)/2.
+	DATA["character"]["health"] += len(current_intesections)/1.5
 	health.change_value(DATA["character"]["health"])
 	
 func _input(event: InputEvent) -> void:

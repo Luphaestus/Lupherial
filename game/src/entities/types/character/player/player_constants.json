@@ -2,7 +2,7 @@
  	"general_propoties": {
 		"scriptLocation": "res://src/entities/types/character/player/player.tscn",
 		"originalJson": "res://src/entities/types/character/player/player.json",
-		"loadChunks": 1
+		"loadChunks": 2
 	},
 	"saving": {
 		"do_save": true,

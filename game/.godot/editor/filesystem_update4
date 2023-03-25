@@ -29,3 +29,4 @@ res://src/entities/types/character/shared_res/hit/hurtbox.gd
 res://src/entities/types/character/shared_res/hit/hurtbox.tscn
 res://src/entities/types/character/shared_res/tools/tool.tscn
 res://src/entities/types/character/player/timer.gd
+res://src/entities/types/overlay/inventory/slot/slot.gd

@@ -1,6 +1,6 @@
 extends Entity
 
-var CHUNKSIZE := 32
+var CHUNKSIZE := 48
 var LOADED_CHUNKS = []
 var CHUNK_LOADING_ENTITES = []
 var CALL_EVERY_CHUNK = []

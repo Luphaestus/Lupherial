@@ -100,7 +100,7 @@ func _process(_delta: float) -> void:
 		elif spos.y > mpos.y or mpos.y > spos.y+size.y:
 			preview_slot.queue_free()
 			preview_slot = false
-		if Input.is_action_just_released("UI_click"):
+		elif Input.is_action_just_released("UI_click"):
 			preview_slot.queue_free()
 			preview_slot = false
 	if item:
