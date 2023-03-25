@@ -1,7 +1,5 @@
 #!/bin/bash
 
-tput smcup
-
 function drawProgressBar() {
     local maxValue="$1"
     local currentValue="$2"
@@ -68,6 +66,14 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+if [[ "$override" == false && -z $(git status --porcelain) ]]; then
+  echo "Nothing to commit. Exiting."
+  exit 0
+fi
+rm -r "./output.txt" > output.txt 2>&1
+
+echo "┌──────────────────────────────────────────────────────────────────────────────────────────────────────┐"
+
 REPO_OWNER="Luphaestus"
 REPO_NAME="Lupherial"
 GITHUB_TOKEN="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"
@@ -81,18 +87,9 @@ git push https://${REPO_OWNER}:${GITHUB_TOKEN}@github.com/${REPO_OWNER}/${REPO_N
 drawProgressBar 3 3 "Syncing with Github:"
 
 if $github; then
-  tput rmcup
+  echo "└──────────────────────────────────────────────────────────────────────────────────────────────────────┘"
   exit 0
 fi
-
-if [[ "$override" == false && -z $(git status --porcelain) ]]; then
-  echo "Nothing to commit. Exiting."
-  tput rmcup
-  exit 0
-fi
-rm -r "./output.txt" > output.txt 2>&1
-
-echo "┌──────────────────────────────────────────────────────────────────────────────────────────────────────┐"
 drawProgressBar 3 0 "Removing old compiled directories: "
 rm -r -f "../bin/lupherial-linux/lupherial" > output.txt 2>&1
 drawProgressBar 3 1 "Removing old compiled directories: "
@@ -173,5 +170,4 @@ curl --header "Authorization: token $GITHUB_TOKEN" \
   --data-binary "@../out/lupherial-macos.zip" \
   | pv --quiet --wait
  
-tput rmcup
 echo "Synced with github"
