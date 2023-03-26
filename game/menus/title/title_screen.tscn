@@ -1,14 +1,20 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=9 format=3 uid="uid://bcm85bpeg762g"]
 
+[ext_resource type="Shader" path="res://menus/title/vignette.gdshader" id="1_gs87d"]
 [ext_resource type="Script" path="res://menus/title/Continue.gd" id="1_w5xi1"]
 [ext_resource type="Script" path="res://menus/title/Create_new.gd" id="2_6sk3h"]
+[ext_resource type="Texture2D" uid="uid://b52p7c03b3q7y" path="res://menus/clipboard.png" id="2_g6g8b"]
+[ext_resource type="StyleBox" uid="uid://cm8s8ud3ula83" path="res://menus/title/button.tres" id="5_w7syw"]
+[ext_resource type="StyleBox" uid="uid://df1ah4272oes6" path="res://menus/title/button-hover.tres" id="6_vs3gh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7acu"]
-content_margin_left = 40.0
-content_margin_top = 40.0
-content_margin_right = 40.0
-content_margin_bottom = 40.0
-bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_syxc5"]
+shader = ExtResource("1_gs87d")
+shader_parameter/vignette_intensity = 0.2
+shader_parameter/vignette_opacity = 0.5
+shader_parameter/vignette_rgb = Quaternion(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pvpj3"]
+texture = ExtResource("2_g6g8b")
 
 [node name="title_screen" type="Control"]
 layout_mode = 3
@@ -19,52 +25,67 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+material = SubResource("ShaderMaterial_syxc5")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_v7acu")
+theme_override_styles/panel = SubResource("StyleBoxTexture_pvpj3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 54
+theme_override_constants/margin_bottom = 27
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 89
 text = "Lupherial
 "
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
+size_flags_horizontal = 6
+theme_override_constants/separation = 20
 
-[node name="Continue" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Continue" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = ExtResource("5_w7syw")
+theme_override_styles/hover = ExtResource("6_vs3gh")
 text = "Continue
 "
-flat = true
-alignment = 0
 script = ExtResource("1_w5xi1")
 
-[node name="Create_new" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Create_new" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = ExtResource("5_w7syw")
+theme_override_styles/hover = ExtResource("6_vs3gh")
 text = "Create New Game"
-flat = true
-alignment = 0
 script = ExtResource("2_6sk3h")
 
-[node name="Options" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
 layout_direction = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = ExtResource("5_w7syw")
+theme_override_styles/hover = ExtResource("6_vs3gh")
 text = "Options"
-flat = true
-alignment = 0

@@ -1,13 +1,318 @@
-[gd_scene format=3 uid="uid://clk060wu3aeeb"]
+[gd_scene load_steps=12 format=3 uid="uid://clk060wu3aeeb"]
+
+[ext_resource type="Script" path="res://menus/game_over/game_over.gd" id="1_faudc"]
+[ext_resource type="FontFile" uid="uid://cp4p1swyxqp2j" path="res://menus/game_over/DarkmodeRegular-X35Oo.ttf" id="3_x788o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_prva7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1swu"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8lxb2"]
+bg_color = Color(0.407843, 0, 0.0862745, 0)
+border_width_left = 600
+border_width_top = 600
+border_width_right = 600
+border_width_bottom = 600
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1019
+corner_detail = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 50
+anti_aliasing = false
+
+[sub_resource type="Animation" id="Animation_uecby"]
+resource_name = "oooo"
+length = 3.5
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:theme_override_styles/panel:bg_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.407843, -0.25, 0, 0.25, 0, 0.407843, -0.25, 0, 0.25, 0, 0.407843, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.8, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:theme_override_styles/panel:bg_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:theme_override_styles/panel:bg_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.0862745, -0.25, 0, 0.25, 0, 0.0862745, -0.25, 0, 0.25, 0, 0.0862745, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:theme_override_styles/panel:bg_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.517647, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.7, 3.2)
+}
+
+[sub_resource type="Animation" id="Animation_10iyv"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:theme_override_styles/panel:bg_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.407843, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:theme_override_styles/panel:bg_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:theme_override_styles/panel:bg_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.0862745, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:theme_override_styles/panel:bg_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xyl5d"]
+_data = {
+"RESET": SubResource("Animation_10iyv"),
+"oooo": SubResource("Animation_uecby")
+}
+
+[sub_resource type="Animation" id="Animation_8cto7"]
+resource_name = "oooo"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.423529, -0.25, 0, 0.25, 0, 0.423529, -0.25, 0, 0.25, 0, 0.423529, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 3.87396)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:theme_override_colors/font_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.0627451, -0.25, 0, 0.25, 0, 0.0627451, -0.25, 0, 0.25, 0, 0.0627451, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 3.87396)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:theme_override_colors/font_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.0509804, -0.25, 0, 0.25, 0, 0.0509804, -0.25, 0, 0.25, 0, 0.0509804, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 3.87396)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:theme_override_colors/font_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.521569, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.545098, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 3.87396)
+}
+
+[sub_resource type="Animation" id="Animation_3f2ng"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.423529, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:theme_override_colors/font_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.0627451, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:theme_override_colors/font_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.0509804, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:theme_override_colors/font_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.521569, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3mb8x"]
+_data = {
+"RESET": SubResource("Animation_3f2ng"),
+"oooo": SubResource("Animation_8cto7")
+}
 
 [node name="game_over" type="PanelContainer"]
+material = SubResource("ShaderMaterial_prva7")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = -0.00156756
+theme_override_styles/panel = SubResource("StyleBoxFlat_e1swu")
+script = ExtResource("1_faudc")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Game Over"
+[node name="Node2D3" type="Node2D" parent="."]
+
+[node name="Panel" type="Panel" parent="Node2D3"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 235.0
+offset_top = 111.0
+offset_right = 1395.0
+offset_bottom = 1042.0
+grow_horizontal = 0
+rotation = -0.00965993
+scale = Vector2(0.604234, 0.50749)
+theme_override_styles/panel = SubResource("StyleBoxFlat_8lxb2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D3"]
+autoplay = "oooo"
+libraries = {
+"": SubResource("AnimationLibrary_xyl5d")
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(343, -68)
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = -30.0
+offset_top = 211.0
+offset_right = 1122.0
+offset_bottom = 474.0
+rotation = -0.142098
+theme_override_colors/font_color = Color(0.423529, 0.0627451, 0.0509804, 1)
+theme_override_fonts/font = ExtResource("3_x788o")
+theme_override_font_sizes/font_size = 260
+text = "Game"
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Node2D2"]
+offset_left = 538.0
+offset_top = 279.0
+offset_right = 1690.0
+offset_bottom = 542.0
+rotation = -0.0760213
+theme_override_colors/font_color = Color(0.423529, 0.0627451, 0.0509804, 1)
+theme_override_fonts/font = ExtResource("3_x788o")
+theme_override_font_sizes/font_size = 260
+text = "Over"
+
+[node name="Node2D4" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Node2D4"]
+offset_left = 10.0422
+offset_top = 611.017
+offset_right = 2391.04
+offset_bottom = 874.017
+theme_override_colors/font_color = Color(0.423529, 0.0627451, 0.0509804, 0.521569)
+theme_override_fonts/font = ExtResource("3_x788o")
+theme_override_font_sizes/font_size = 30
+text = "Press enter or click to continue"
+
+[node name="Label" type="Label" parent="Node2D4/Label"]
+offset_left = 10.0422
+offset_top = 611.017
+offset_right = 2391.04
+offset_bottom = 874.017
+theme_override_colors/font_color = Color(0.423529, 0.0627451, 0.0509804, 0.547523)
+theme_override_fonts/font = ExtResource("3_x788o")
+theme_override_font_sizes/font_size = 30
+text = "Press enter or click to continue"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D4"]
+autoplay = "oooo"
+libraries = {
+"": SubResource("AnimationLibrary_3mb8x")
+}

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 function drawProgressBar() {
     local maxValue="$1"
     local currentValue="$2"
@@ -146,7 +147,7 @@ drawProgressBar 5 4 "Creating new release:"
 curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
 -H "Content-Type: application/json" \
 -d '{"tag_name": "'"$new_version"'", "name": "Lupherial: Release '"$new_version"'", "body": "We are excited to announce that our top-down RPG game is entering a health and well-being competition! With our game, you can embark on a journey of mental wellness and discover the impact of mental health on your life. Our engaging gameplay and immersive storytelling will take you on a journey of self-discovery and empowerment as you learn how to overcome mental health challenges.\\nOne of the key features of our game is procedural generation, which ensures that every playthrough is unique and challenging. Additionally, our enemy pathfinding and resource gathering mechanics add an extra layer of depth and excitement to the gameplay experience.\\nWe believe that our game has the power to make a positive impact on the mental well-being of players. By playing our game, you can learn important skills and strategies for managing mental health challenges, while also enjoying a fun and engaging gaming experience. Download now and join us on this journey towards greater mental wellness!\\nNote: This action was done automatically, if you discover a bug please contact Lupheastus"}' \
-https://api.github.com/repos/Luphaestus/$REPO_NAME/releases > ../log.txt 2>&1
+https://api.github.com/repos/Luphaestus/$REPO_NAME/releases >/dev/null 2>&1
 drawProgressBar 4 0 "Creating new release:"
 # Get the latest release ID
 release_id=$(curl --silent --header "Authorization: token $GITHUB_TOKEN" \

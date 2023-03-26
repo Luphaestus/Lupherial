@@ -347,14 +347,17 @@ shape = SubResource("RectangleShape2D_x40qs")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="inventory" parent="CanvasLayer" instance=ExtResource("5_kqjos")]
+visible = false
 position = Vector2(-4, 8)
 
 [node name="health" parent="CanvasLayer" instance=ExtResource("6_tva6n")]
+visible = false
 position = Vector2(1006, 41)
 scale = Vector2(0.746724, -15.2385)
 gradient = SubResource("Gradient_fhtob")
 
 [node name="Node" type="Node2D" parent="CanvasLayer"]
+visible = false
 position = Vector2(491, 41)
 
 [node name="Label" type="Label" parent="CanvasLayer/Node"]
@@ -366,6 +369,7 @@ theme_override_font_sizes/font_size = 30
 script = ExtResource("8_riws2")
 
 [node name="Node2D" type="Node2D" parent="CanvasLayer"]
+visible = false
 
 [node name="Label" type="Label" parent="CanvasLayer/Node2D"]
 offset_left = 748.0
