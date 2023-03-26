@@ -128,7 +128,7 @@ if [[ -z $(git status --porcelain) ]]; then
 	zip -r ../out/lupherial-windows.zip lupherial-windows  > ../log.txt 2>&1
 	cd ../lupherial > ../log.txt 2>&1
 	drawProgressBar 3 3 "Ziping New Version:"
-	exit 0
+	
 fi
 #-------------------
 drawProgressBar 5 1 "Creating new release:"
