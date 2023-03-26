@@ -115,7 +115,6 @@ if [[ -z $(git status --porcelain) ]]; then
 	rm -r "../out/lupherial-windows.zip" # > ../log.txt 2>&1
 	drawProgressBar 3 3 "Removing old compiled zips: "
 
-
 	drawProgressBar 3 0 "Ziping New Version:"
 	zip -r "../out/lupherial-linux.zip" "../bin/lupherial-linux" # > ../log.txt 2>&1
 	drawProgressBar 3 1 "Ziping New Version:"
