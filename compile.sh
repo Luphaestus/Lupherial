@@ -116,12 +116,13 @@ if [[ -z $(git status --porcelain) ]]; then
 	drawProgressBar 3 3 "Removing old compiled zips: "
 
 	drawProgressBar 3 0 "Ziping New Version:"
-	cd ../bin && zip -r ../lupherial/lupherial-linux.zip lupherial-linux && cd ../lupherial
+	cd ../bin && zip -r ../out/lupherial-linux.zip lupherial-linux && cd ../lupherial
 	drawProgressBar 3 1 "Ziping New Version:"
 	zip -r "../out/lupherial-macos.zip" "../bin/lupherial-macos" #> ../log.txt 2>&1
 	drawProgressBar 3 2 "Ziping New Version:"
 	zip -r "../out/lupherial-windows.zip" "../bin/lupherial-windows" #> ../log.txt 2>&1
 	drawProgressBar 3 3 "Ziping New Version:"
+	exit 0
 fi
 #-------------------
 drawProgressBar 5 1 "Creating new release:"
