@@ -123,7 +123,6 @@ if [[ -z $(git status --porcelain) ]]; then
 	zip -r "../out/lupherial-windows.zip" "../bin/lupherial-windows" #> ../log.txt 2>&1
 	drawProgressBar 3 3 "Ziping New Version:"
 fi
-
 #-------------------
 drawProgressBar 5 1 "Creating new release:"
 # Get the latest release information
