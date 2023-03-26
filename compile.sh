@@ -100,11 +100,11 @@ if [[ -z $(git status --porcelain) ]]; then
 	drawProgressBar 3 3 "Removing old compiled directories: "
 
 	drawProgressBar 3 0 "Coppying updated files:"
-	cp -R "../bin/lupherial-linux" #> ../log.txt 2>&1
+	cp -R "./game" "../bin/lupherial-linux" #> ../log.txt 2>&1
 	drawProgressBar 3 1 "Coppying updated files:"
-	cp -R "../bin/lupherial-macos" #> ../log.txt 2>&1
+	cp -R "./game" "../bin/lupherial-macos" #> ../log.txt 2>&1
 	drawProgressBar 3 2 "Coppying updated files:"
-	cp -R "../bin/lupherial-windows" # > ../log.txt 2>&1
+	cp -R "./game" "../bin/lupherial-windows" # > ../log.txt 2>&1
 	drawProgressBar 3 3 "Coppying updated files:"
 
 	drawProgressBar 3 0 "Removing old compiled zips: "
