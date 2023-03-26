@@ -90,7 +90,7 @@ if $github; then
   echo "└──────────────────────────────────────────────────────────────────────────────────────────────────────┘"
   exit 0
 fi
-if ! [[ -z $(git status --porcelain) ]]; then
+if [[ -z $(git status --porcelain) ]]; then
 	drawProgressBar 3 0 "Removing old compiled directories: "
 	rm -r -f "../bin/lupherial-linux/lupherial" > ../log.txt 2>&1
 	drawProgressBar 3 1 "Removing old compiled directories: "
