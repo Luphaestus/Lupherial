@@ -99,7 +99,6 @@ if [[ -z $(git status --porcelain) ]]; then
 	rm -r -f "../bin/lupherial-windows/lupherial" > ../log.txt 2>&1
 	drawProgressBar 3 3 "Removing old compiled directories: "
 
-
 	drawProgressBar 3 0 "Coppying updated files:"
 	cp -R "" "../bin/lupherial-linux" > ../log.txt 2>&1
 	drawProgressBar 3 1 "Coppying updated files:"
