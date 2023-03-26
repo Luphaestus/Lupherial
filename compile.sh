@@ -45,14 +45,14 @@ fi
 }
 
 git  add .
-override=false
+force=false
 github=false
 
 # Parse command-line arguments
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    --override)
-      override=true
+    --force)
+      force=true
       shift 1
       ;;
     --github)
@@ -66,7 +66,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [[ "$override" == false && -z $(git status --porcelain) ]]; then
+if [[ "$force" == false && -z $(git status --porcelain) ]]; then
   echo "Nothing to commit. Exiting."
   exit 0
 fi
