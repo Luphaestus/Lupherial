@@ -92,35 +92,41 @@ if $github; then
 fi
 if [[ -z $(git status --porcelain) ]]; then
 	drawProgressBar 3 0 "Removing old compiled directories: "
-	rm -r -f "../bin/lupherial-linux/game" # > ../log.txt 2>&1
+	rm -r -f "../bin/lupherial-linux/game" > ../log.txt 2>&1
 	drawProgressBar 3 1 "Removing old compiled directories: "
-	rm -r -f "../bin/lupherial-macos/game" #> ../log.txt 2>&1
+	rm -r -f "../bin/lupherial-macos/game" > ../log.txt 2>&1
 	drawProgressBar 3 2 "Removing old compiled directories: "
-	rm -r -f "../bin/lupherial-windows/game" # > ../log.txt 2>&1
+	rm -r -f "../bin/lupherial-windows/game" > ../log.txt 2>&1
 	drawProgressBar 3 3 "Removing old compiled directories: "
 
 	drawProgressBar 3 0 "Coppying updated files:"
-	cp -R "./game" "../bin/lupherial-linux" #> ../log.txt 2>&1
+	cp -R "./game" "../bin/lupherial-linux"> ../log.txt 2>&1
 	drawProgressBar 3 1 "Coppying updated files:"
-	cp -R "./game" "../bin/lupherial-macos" #> ../log.txt 2>&1
+	cp -R "./game" "../bin/lupherial-macos"> ../log.txt 2>&1
 	drawProgressBar 3 2 "Coppying updated files:"
-	cp -R "./game" "../bin/lupherial-windows" # > ../log.txt 2>&1
+	cp -R "./game" "../bin/lupherial-windows" > ../log.txt 2>&1
 	drawProgressBar 3 3 "Coppying updated files:"
 
 	drawProgressBar 3 0 "Removing old compiled zips: "
-	rm -r "../out/lupherial-linux.zip" # > ../log.txt 2>&1
+	rm -r "../out/lupherial-linux.zip" > ../log.txt 2>&1
 	drawProgressBar 3 1 "Removing old compiled zips: "
-	rm -r "../out/lupherial-macos.zip" # > ../log.txt 2>&1
+	rm -r "../out/lupherial-macos.zip" > ../log.txt 2>&1
 	drawProgressBar 3 2 "Removing old compiled zips: "
-	rm -r "../out/lupherial-windows.zip" # > ../log.txt 2>&1
+	rm -r "../out/lupherial-windows.zip" > ../log.txt 2>&1
 	drawProgressBar 3 3 "Removing old compiled zips: "
 
 	drawProgressBar 3 0 "Ziping New Version:"
-	cd ../bin && zip -r ../out/lupherial-linux.zip lupherial-linux && cd ../lupherial
+	cd ../bin  > ../log.txt 2>&1
+	zip -r ../out/lupherial-linux.zip lupherial-linux > ../log.txt 2>&1
+	cd ../lupherial  > ../log.txt 2>&1
 	drawProgressBar 3 1 "Ziping New Version:"
-	cd ../bin && zip -r ../out/lupherial-macos.zip lupherial-macos && cd ../lupherial
+	cd ../bin  > ../log.txt 2>&1
+	zip -r ../out/lupherial-macos.zip lupherial-macos > ../log.txt 2>&1
+	cd ../lupherial > ../log.txt 2>&1
 	drawProgressBar 3 2 "Ziping New Version:"
-	cd ../bin && zip -r ../out/lupherial-windows.zip lupherial-windows && cd ../lupherial
+	cd ../bin > ../log.txt 2>&1
+	zip -r ../out/lupherial-windows.zip lupherial-windows  > ../log.txt 2>&1
+	cd ../lupherial > ../log.txt 2>&1
 	drawProgressBar 3 3 "Ziping New Version:"
 	exit 0
 fi
