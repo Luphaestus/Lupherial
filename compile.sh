@@ -90,39 +90,41 @@ if $github; then
   echo "└──────────────────────────────────────────────────────────────────────────────────────────────────────┘"
   exit 0
 fi
-drawProgressBar 3 0 "Removing old compiled directories: "
-rm -r -f "../bin/lupherial-linux/lupherial" > ../log.txt 2>&1
-drawProgressBar 3 1 "Removing old compiled directories: "
-rm -r -f "../bin/lupherial-macos/lupherial" > ../log.txt 2>&1
-drawProgressBar 3 2 "Removing old compiled directories: "
-rm -r -f "../bin/lupherial-windows/lupherial" > ../log.txt 2>&1
-drawProgressBar 3 3 "Removing old compiled directories: "
-
-drawProgressBar 3 0 "Coppying updated files:"
-cp -R "" "../bin/lupherial-linux" > ../log.txt 2>&1
-drawProgressBar 3 1 "Coppying updated files:"
-cp -R "" "../bin/lupherial-macos" > ../log.txt 2>&1
-drawProgressBar 3 2 "Coppying updated files:"
-cp -R "" "../bin/lupherial-windows" > ../log.txt 2>&1
-drawProgressBar 3 3 "Coppying updated files:"
-
-drawProgressBar 3 0 "Removing old compiled zips: "
-rm -r "../out/lupherial-linux.zip" > ../log.txt 2>&1
-drawProgressBar 3 1 "Removing old compiled zips: "
-rm -r "../out/lupherial-macos.zip" > ../log.txt 2>&1
-drawProgressBar 3 2 "Removing old compiled zips: "
-rm -r "../out/lupherial-windows.zip" > ../log.txt 2>&1
-drawProgressBar 3 3 "Removing old compiled zips: "
+if ! [[ -z $(git status --porcelain) ]]; then
+	drawProgressBar 3 0 "Removing old compiled directories: "
+	rm -r -f "../bin/lupherial-linux/lupherial" > ../log.txt 2>&1
+	drawProgressBar 3 1 "Removing old compiled directories: "
+	rm -r -f "../bin/lupherial-macos/lupherial" > ../log.txt 2>&1
+	drawProgressBar 3 2 "Removing old compiled directories: "
+	rm -r -f "../bin/lupherial-windows/lupherial" > ../log.txt 2>&1
+	drawProgressBar 3 3 "Removing old compiled directories: "
 
 
-drawProgressBar 3 0 "Ziping New Version:"
-zip -r "../out/lupherial-linux.zip" "../bin/lupherial-linux" > ../log.txt 2>&1
-drawProgressBar 3 1 "Ziping New Version:"
-zip -r "../out/lupherial-macos.zip" "../bin/lupherial-macos" > ../log.txt 2>&1
-drawProgressBar 3 2 "Ziping New Version:"
-zip -r "../out/lupherial-windows.zip" "../bin/lupherial-windows" > ../log.txt 2>&1
-drawProgressBar 3 3 "Ziping New Version:"
+	drawProgressBar 3 0 "Coppying updated files:"
+	cp -R "" "../bin/lupherial-linux" > ../log.txt 2>&1
+	drawProgressBar 3 1 "Coppying updated files:"
+	cp -R "" "../bin/lupherial-macos" > ../log.txt 2>&1
+	drawProgressBar 3 2 "Coppying updated files:"
+	cp -R "" "../bin/lupherial-windows" > ../log.txt 2>&1
+	drawProgressBar 3 3 "Coppying updated files:"
 
+	drawProgressBar 3 0 "Removing old compiled zips: "
+	rm -r "../out/lupherial-linux.zip" > ../log.txt 2>&1
+	drawProgressBar 3 1 "Removing old compiled zips: "
+	rm -r "../out/lupherial-macos.zip" > ../log.txt 2>&1
+	drawProgressBar 3 2 "Removing old compiled zips: "
+	rm -r "../out/lupherial-windows.zip" > ../log.txt 2>&1
+	drawProgressBar 3 3 "Removing old compiled zips: "
+
+
+	drawProgressBar 3 0 "Ziping New Version:"
+	zip -r "../out/lupherial-linux.zip" "../bin/lupherial-linux" > ../log.txt 2>&1
+	drawProgressBar 3 1 "Ziping New Version:"
+	zip -r "../out/lupherial-macos.zip" "../bin/lupherial-macos" > ../log.txt 2>&1
+	drawProgressBar 3 2 "Ziping New Version:"
+	zip -r "../out/lupherial-windows.zip" "../bin/lupherial-windows" > ../log.txt 2>&1
+	drawProgressBar 3 3 "Ziping New Version:"
+fi
 
 #-------------------
 drawProgressBar 5 1 "Creating new release:"
