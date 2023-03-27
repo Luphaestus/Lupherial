@@ -7,26 +7,33 @@ class_name Health
 
 @export var gradient : Gradient
 
-
+var larger = true
 
 var currentValue : float
 var maxValue := 10
 var gradualVal = .1
 
 func _process(_delta: float) -> void:
-	if gradual.value >= currentValue:
-		gradual.value -= gradualVal
-	
-	elif gradual.value != currentValue:
-		gradual.value = currentValue	
+	if larger:
+		if gradual.value <= currentValue:
+			gradual.value += gradualVal
+		
+		elif gradual.value != currentValue:
+			gradual.value = currentValue	
+	else:
+		if gradual.value >= currentValue:
+			gradual.value -= gradualVal
+		
+		elif gradual.value != currentValue:
+			gradual.value = currentValue	
 
 func change_value(value):
-	if currentValue > value:
-		instant.value = value
-
+	
+	instant.value = value
+	larger =  value > currentValue  
 	currentValue = value
 	instant.tint_progress = gradient.sample(currentValue/maxValue)
-
+	
 	
 	
 

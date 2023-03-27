@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcm85bpeg762g"]
+[gd_scene load_steps=16 format=3 uid="uid://bcm85bpeg762g"]
 
+[ext_resource type="Script" path="res://menus/title/title_screen.gd" id="1_bu0la"]
 [ext_resource type="Shader" path="res://menus/title/vignette.gdshader" id="1_gs87d"]
 [ext_resource type="Script" path="res://menus/title/Continue.gd" id="1_w5xi1"]
 [ext_resource type="Script" path="res://menus/title/Create_new.gd" id="2_6sk3h"]
 [ext_resource type="Texture2D" uid="uid://b52p7c03b3q7y" path="res://menus/clipboard.png" id="2_g6g8b"]
 [ext_resource type="StyleBox" uid="uid://cm8s8ud3ula83" path="res://menus/title/button.tres" id="5_w7syw"]
 [ext_resource type="StyleBox" uid="uid://df1ah4272oes6" path="res://menus/title/button-hover.tres" id="6_vs3gh"]
+[ext_resource type="Shader" path="res://menus/transition.gdshader" id="7_wwft8"]
+[ext_resource type="Texture2D" uid="uid://dlg7eqj48c6t" path="res://menus/title/from_center.png" id="8_narxr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_syxc5"]
 shader = ExtResource("1_gs87d")
@@ -16,6 +19,48 @@ shader_parameter/vignette_rgb = Quaternion(0, 0, 0, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pvpj3"]
 texture = ExtResource("2_g6g8b")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aj1ig"]
+shader = ExtResource("7_wwft8")
+shader_parameter/cutoff = 0.0
+shader_parameter/smooth_size = 1.0
+shader_parameter/color = null
+shader_parameter/mask = ExtResource("8_narxr")
+
+[sub_resource type="Animation" id="Animation_h4qn3"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/cutoff")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_kvb8p"]
+resource_name = "transition"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/cutoff")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_afgoy"]
+_data = {
+"RESET": SubResource("Animation_h4qn3"),
+"transition": SubResource("Animation_kvb8p")
+}
+
 [node name="title_screen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -23,6 +68,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bu0la")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 material = SubResource("ShaderMaterial_syxc5")
@@ -89,3 +135,19 @@ theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = ExtResource("5_w7syw")
 theme_override_styles/hover = ExtResource("6_vs3gh")
 text = "Options"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_aj1ig")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+autoplay = "transition"
+libraries = {
+"": SubResource("AnimationLibrary_afgoy")
+}

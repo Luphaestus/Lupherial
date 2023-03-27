@@ -5,6 +5,8 @@ extends character
 @export var health : Health
 
 @export var wins : Label
+@export var time : Label
+
 var mousemode 
 
 func _ready():
@@ -25,6 +27,10 @@ func _ready():
 	get_damage = func get_damage() -> int: return 1
 
 	health.start(DATA["constants"]["character"]["max_health"], DATA["character"]["health"], .05)
+
+	
+	time.set_time(DATA["time"], self)
+	
 
 func add_item(item_object:Object):
 	

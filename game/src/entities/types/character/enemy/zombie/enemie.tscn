@@ -307,7 +307,7 @@ _data = {
 "right-walk": SubResource("Animation_mqddh")
 }
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_wsrrq"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_r2c5u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkn1s"]
 size = Vector2(8, 13)
@@ -385,7 +385,7 @@ libraries = {
 
 [node name="AnimationTree2" parent="CharacterBody2D" instance=ExtResource("4_o86b8")]
 active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_wsrrq")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_r2c5u")
 
 [node name="hurtbox" parent="CharacterBody2D" node_paths=PackedStringArray("root_node") instance=ExtResource("6_7ba1y")]
 collision_layer = 4

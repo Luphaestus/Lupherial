@@ -1,1 +1,1 @@
-{"character":{"health":50},"constants_path":"res://src/entities/types/character/player/player_constants.json","general_propoties":{"posx":-2779.4296875,"posy":541.236206054688}}
+{"time":"-1", "character":{"health":50},"constants_path":"res://src/entities/types/character/player/player_constants.json","general_propoties":{"posx":-2779.4296875,"posy":541.236206054688}}

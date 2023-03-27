@@ -1,4 +1,5 @@
 AnimationPlayer
+ColorRect
 Node2D
 Panel
 Label
@@ -24,7 +25,6 @@ HSeparator
 Camera2D
 Entity
 TextureRect
-ColorRect
 GridContainer
 CanvasModulate
 CanvasGroup

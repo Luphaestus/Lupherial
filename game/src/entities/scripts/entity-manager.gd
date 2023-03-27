@@ -1,5 +1,7 @@
 extends Node2D
 
+
+
 func ReadJsonFile(file_path)->Dictionary:
 	var content_as_text := FileAccess.open(file_path, FileAccess.READ).get_as_text()
 	var data := JSON.new()
@@ -168,6 +170,7 @@ func StartAutoSave(delay:float = .1)->void:
 	add_child(timer)
 
 	timer.start()
+	AutoLoadSave()
 func _notification(what):
 	if (what == NOTIFICATION_WM_CLOSE_REQUEST):
 		SaveAll()

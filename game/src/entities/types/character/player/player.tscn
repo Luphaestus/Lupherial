@@ -287,7 +287,7 @@ resource_local_to_scene = true
 offsets = PackedFloat32Array(0, 0.202899, 0.468599, 0.661836, 0.980676)
 colors = PackedColorArray(1, 0, 0, 1, 0.994242, 0.618735, 0.285372, 1, 0.0386474, 0.961353, 0, 1, 0.905508, 0.650549, 0.258873, 1, 0.905882, 0, 0, 1)
 
-[node name="player" type="Node2D" node_paths=PackedStringArray("tool", "inventory", "chatacterbody", "health", "wins")]
+[node name="player" type="Node2D" node_paths=PackedStringArray("tool", "inventory", "chatacterbody", "health", "wins", "time")]
 process_mode = 3
 y_sort_enabled = true
 position = Vector2(0, -1)
@@ -297,6 +297,7 @@ inventory = NodePath("CanvasLayer/inventory")
 chatacterbody = NodePath("CharacterBody2D")
 health = NodePath("CanvasLayer/health")
 wins = NodePath("CanvasLayer/Node2D/Label")
+time = NodePath("CanvasLayer/Node/Label")
 metadata/_edit_vertical_guides_ = [-140.0]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -347,17 +348,14 @@ shape = SubResource("RectangleShape2D_x40qs")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="inventory" parent="CanvasLayer" instance=ExtResource("5_kqjos")]
-visible = false
 position = Vector2(-4, 8)
 
 [node name="health" parent="CanvasLayer" instance=ExtResource("6_tva6n")]
-visible = false
 position = Vector2(1006, 41)
 scale = Vector2(0.746724, -15.2385)
 gradient = SubResource("Gradient_fhtob")
 
 [node name="Node" type="Node2D" parent="CanvasLayer"]
-visible = false
 position = Vector2(491, 41)
 
 [node name="Label" type="Label" parent="CanvasLayer/Node"]
@@ -369,13 +367,14 @@ theme_override_font_sizes/font_size = 30
 script = ExtResource("8_riws2")
 
 [node name="Node2D" type="Node2D" parent="CanvasLayer"]
-visible = false
+position = Vector2(-148, 182)
 
 [node name="Label" type="Label" parent="CanvasLayer/Node2D"]
-offset_left = 748.0
-offset_top = 38.0
-offset_right = 788.0
-offset_bottom = 61.0
+offset_left = 1242.0
+offset_top = 428.0
+offset_right = 1282.0
+offset_bottom = 454.0
+text = "0/3"
 
 [connection signal="area_exited" from="CharacterBody2D/hurtbox" to="." method="_on_hurtbox_area_exited"]
 
